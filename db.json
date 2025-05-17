@@ -1,0 +1,61 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "username": "박설호",
+      "userId": "root",
+      "password": "1234",
+      "state": 777,
+      "createAt": "2025-05-07",
+      "profilePhoto": "",
+      "message": ""
+    },
+    {
+      "username": "박선호",
+      "userId": "root1",
+      "password": "1234",
+      "state": 1,
+      "createAt": "2025-05-12 18:59:15",
+      "profilePhoto": "",
+      "id": 2
+    },
+    {
+      "username": "유카",
+      "userId": "root2",
+      "password": "1234",
+      "state": 1,
+      "createAt": "2025-05-13 17:17:08",
+      "profilePhoto": "",
+      "message": "",
+      "id": 3
+    },
+    {
+      "username": "박설호",
+      "userId": "root3",
+      "password": "1234",
+      "state": 1,
+      "createAt": "2025-05-15 15:27:39",
+      "profilePhoto": "",
+      "message": "",
+      "id": 4
+    }
+  ],
+  "session": [
+    {
+      "sessionId": 1,
+      "uid": 1,
+      "id": 1
+    },
+    {
+      "sessionId": 1747052016836,
+      "uid": 1,
+      "id": 2
+    },
+
+    {
+      "sessionId": 1747373957366,
+      "uid": 1,
+      "id": 8
+    }
+  ]
+}
