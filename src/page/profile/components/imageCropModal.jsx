@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import ReactCrop from "react-image-crop";
 import "react-image-crop/dist/ReactCrop.css";
 import "./mycrop.css";
+import { useMyProfile } from "../../../store/myprofile";
 
 export const ImageCropper = ({ closeModal }) => {
   const [imgSrc, setImgSrc] = useState("");
@@ -10,6 +11,7 @@ export const ImageCropper = ({ closeModal }) => {
   const [size, setSize] = useState(false);
   const imgRef = useRef(null);
   const [image, setImage] = useState(false);
+  const { setMyprofile } = useMyProfile();
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -71,14 +73,20 @@ export const ImageCropper = ({ closeModal }) => {
 
   const editProfilePhoto = () => {
     // 서버로 이미지 보내기
+    setMyprofile();
     closeModal();
   };
 
   return (
     <div>
       <div className="flex justify-between items-center pb-2">
-        <p className="font-semibold text-brand-sub hover:text-red-700">취소</p>
-        <p className="font-bold text-brand">프로필 편집</p>
+        <p
+          className="font-semibold text-brand-sub hover:text-red-700"
+          onClick={() => closeModal()}
+        >
+          취소
+        </p>
+        <p className="font-bold text-brand dark:text-brand-dark">프로필 편집</p>
         {image ? (
           <p
             onClick={editProfilePhoto}
