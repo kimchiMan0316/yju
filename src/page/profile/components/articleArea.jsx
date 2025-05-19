@@ -31,11 +31,14 @@ export const ArticleArea = ({ id }) => {
       <div className="grid grid-cols-3 gap-1">
         <div className="bg-red-500 aspect-square rounded-md">1</div>
         {postList.map((item) => (
-          <div key={item.id} className="grid grid-rows-2 aspect-square">
-            <div className="">
+          <div
+            key={item.id}
+            className="grid grid-rows-2 aspect-square border rounded-md cursor-pointer"
+          >
+            <div className="p-2">
               <p>{item.title}</p>
             </div>
-            <div className="bg-brand-point">
+            <div className="bg-brand-point dark:bg-card-dark p-2">
               <article>{item.article}</article>
               <p>{item.createAt}</p>
             </div>

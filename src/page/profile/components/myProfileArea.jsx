@@ -45,25 +45,12 @@ export const MyProfileArea = () => {
             </p>
             <button
               onClick={editorHandler}
-              className="bg-[#ededed] dark:bg-card-dark dark:hover:bg-card-hover text-base px-4 py-1 mb-4 rounded-lg"
+              className="bg-[#ededed] dark:bg-button-point dark:hover:bg-card-hover text-base px-4 py-1 mb-4 rounded-lg"
             >
               프로필 편집
             </button>
           </div>
         </div>
-
-        {/* <div className="flex flex-col justify-center items-center ml-20">
-          <p className="text-3xl font-bold ">{username}</p>
-          <p className="my-6 text-brand-sub">
-            {message ? message : `${username}의 프로필`}
-          </p>
-          <button
-            onClick={editorHandler}
-            className="bg-[#ededed] dark:bg-card-dark dark:hover:bg-card-hover text-base px-4 py-1 rounded-lg"
-          >
-            프로필 편집
-          </button>
-        </div> */}
       </div>
     </>
   );

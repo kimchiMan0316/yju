@@ -8,7 +8,7 @@ import 면접준비 from "../../../assets/일본에서 이�
 export const Introduce = () => {
   return (
     <div className="w-full ">
-      <div>
+      <div className="py-32">
         <AnimatedContainer>
           <p className="text-3xl mb-6 text-center font-bold  mt-20">
             우리는 이런걸 해요.
