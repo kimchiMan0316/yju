@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export const LongBox = ({ title, article, to, children, className }) => {
   return (
     <div
-      className={`flex justify-around items-center w-1/2 h-40 bg-brand-point dark:bg-card-dark rounded-2xl ${className}`}
+      className={`flex justify-around items-center h-40 bg-brand-point dark:bg-card-dark rounded-2xl ${className}`}
     >
       <div className="flex items-center">
         {children}

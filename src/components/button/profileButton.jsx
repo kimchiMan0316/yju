@@ -11,17 +11,19 @@ export const ProfileButton = () => {
   };
 
   return (
-    <div
-      onClick={onClick}
-      className="flex justify-center w-10 h-10 items-center rounded-[50%] overflow-hidden border-[#ededed]"
-    >
-      <div>
-        <img
-          className="object-cover  w-10 h-10 cursor-pointer"
-          src={profilePhoto ? profilePhoto : defaultProfile}
-          alt="profileImage"
-        />
+    <>
+      <div
+        onClick={onClick}
+        className="relative flex justify-center w-10 h-10 items-center  border-[#ededed]"
+      >
+        <div>
+          <img
+            className="object-cover  w-10 h-10 cursor-pointer rounded-[50%] overflow-hidden"
+            src={profilePhoto ? profilePhoto : defaultProfile}
+            alt="profileImage"
+          />
+        </div>
       </div>
-    </div>
+    </>
   );
 };

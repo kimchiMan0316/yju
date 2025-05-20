@@ -47,7 +47,7 @@ export const useFetch = () => {
         body: JSON.stringify(body),
       });
       const response = await request.json();
-      if (response) {
+      if (response.length > 0) {
         console.log(response);
         setResponse(response);
         if (callback) {

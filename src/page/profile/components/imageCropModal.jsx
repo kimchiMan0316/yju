@@ -14,7 +14,7 @@ export const ImageCropper = ({ closeModal, id }) => {
   const imgRef = useRef(null);
   const [image, setImage] = useState(false);
   const { editMyProfile } = useMyProfile();
-  const { response, loading, fetcher } = useFetch();
+  const { fetcher } = useFetch();
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];

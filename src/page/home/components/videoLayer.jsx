@@ -33,7 +33,7 @@ export const VideoLayerComponent = () => {
       </video>
 
       <div
-        className="flex ml-2 w-[200px] flex-col gap-2"
+        className=" ml-2 w-[200px] flex-col gap-2 hidden lg:flex"
         style={{ height: `${videoHeight}px` }}
       >
         <div className="w-full h-1/2 flex flex-col justify-center items-center cursor-pointer hover:bg-[#d8d8d8] bg-brand-point dark:bg-card-dark rounded-3xl">

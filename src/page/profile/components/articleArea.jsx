@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { PostingBox } from "./box/postingBox";
 
 export const ArticleArea = ({ id }) => {
   // id기반으로 글 검색
@@ -20,26 +21,23 @@ export const ArticleArea = ({ id }) => {
 
   return (
     <div className="border-t-2 border-[#ededed] dark:border-[#191b22]">
-      <p className="text-center font-bold m-1 mb-2 text-lg dark:text-brand-dark text-brand-sub">
+      <p className="text-center font-bold m-1 mb-2 text-lg  dark:text-brand-dark text-brand-sub">
         게시글
       </p>
-      <div className="grid grid-cols-3 gap-1">
-        {postList.map((item) => (
-          <div
-            key={item.id}
-            className="grid grid-rows-[2fr_1fr] aspect-square border rounded-md cursor-pointer"
-          >
-            <div className="flex justify-center items-center ">
-              <p className="text-2xl font-bold text-brand dark:text-brand-dark">
-                {item.title}
-              </p>
-            </div>
-            <div className="flex h-full rounded-b-md flex-col justify-between bg-brand-point dark:bg-card-dark p-2">
-              <article className="text-sm line-clamp-3">{item.article}</article>
-              <div className="text-left text-sm">{item.createAt}</div>
-            </div>
+      <div
+        className={
+          postList.length > 0
+            ? "grid grid-cols-3 gap-1"
+            : "flex justify-center items-center h-[40vh]"
+        }
+      >
+        {postList.length > 0 ? (
+          postList.map((item) => <PostingBox item={item} />)
+        ) : (
+          <div className="flex justify-center items-center h-full">
+            <p className="font-bold ">게시글 없음</p>
           </div>
-        ))}
+        )}
       </div>
     </div>
   );

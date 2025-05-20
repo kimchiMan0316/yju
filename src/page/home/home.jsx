@@ -21,12 +21,12 @@ export const Home = () => {
         )}
         <Container page={true} className="bg-brand">
           <VideoLayerComponent />
-          <div className=" w-full h-48 flex justify-between items-center">
+          {/* "w-full h-48 flex justify-between items-center" */}
+          <div className="md:grid md:grid-cols-2 flex flex-col gap-2 mt-2">
             <LongBox
               title="현지학기제"
               article="일본에서 보내는 방학생활을 알아봐요"
               to="/localSemester"
-              className={"mr-2"}
             >
               <img
                 className="w-[4.5rem] h-[4.5rem] mr-1"
@@ -38,7 +38,6 @@ export const Home = () => {
               title="게시판"
               article="친구들과 자유롭게 소통해요!"
               to="/post"
-              className={"ml-2"}
             >
               <img
                 className="w-20 h-20"
