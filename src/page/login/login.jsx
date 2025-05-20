@@ -8,7 +8,7 @@ import { redirectHome } from "./api/redirectHome";
 import { handleLoginSubmit } from "./api/handleLoginSubmit";
 
 const Login = () => {
-  const [inputValue, setValue, onChange] = useChange({
+  const { inputValue, onChange } = useChange({
     userId: "",
     password: "",
   });

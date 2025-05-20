@@ -1,5 +1,5 @@
 import { AnimatedContainer } from "../../../components/animationContainer/animationContainer";
-import { Container } from "../../../components/container/container";
+
 import 수업사진 from "../../../assets/수업사진.jpg";
 import 컴퓨터공부사진 from "../../../assets/컴퓨터 공부 사진.jpg";
 import 캡스톤사진 from "../../../assets/캡스톤사진.jpg";

@@ -24,8 +24,10 @@ export const EndPoint = () => {
           src={수업}
           alt="수업"
         />
-        <div className="absolute inset-0 flex justify-center items-center">
-          <h1 className="text-white text-7xl font-bold">꿈을 위한 도전</h1>
+        <div className="absolute inset-0 flex flex-col justify-center items-center text-center">
+          <h1 className="text-white text-7xl font-bold mb-4">꿈을 위한 도전</h1>
+
+          <h1 className="text-white text-7xl font-bold">영진에서</h1>
         </div>
       </motion.div>
     </div>

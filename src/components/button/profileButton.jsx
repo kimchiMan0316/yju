@@ -2,9 +2,9 @@ import { useNavigate } from "react-router-dom";
 import defaultProfile from "../../assets/기본이미지.png";
 import { useMyProfile } from "../../store/myprofile";
 
-export const ProfileButton = ({ image }) => {
+export const ProfileButton = () => {
   const navigate = useNavigate();
-  const id = useMyProfile((state) => state.myProfile.id);
+  const { id, profilePhoto } = useMyProfile((state) => state.myProfile);
 
   const onClick = () => {
     navigate(`/profile/${id}`);
@@ -18,7 +18,7 @@ export const ProfileButton = ({ image }) => {
       <div>
         <img
           className="object-cover  w-10 h-10 cursor-pointer"
-          src={image ? image : defaultProfile}
+          src={profilePhoto ? profilePhoto : defaultProfile}
           alt="profileImage"
         />
       </div>

@@ -10,6 +10,7 @@ export const useFetch = () => {
   const fetcher = async ({ url, method, body }, callback) => {
     if (method === "GET" || method === "DELETE") {
       setLoading(true);
+
       try {
         const session = await checkSession();
         if (!session) {

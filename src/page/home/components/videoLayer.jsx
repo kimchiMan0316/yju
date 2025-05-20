@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import yju_video from "../../../assets/yju-youtube.webm";
-import { Button } from "../../../components/button/button";
 import yju_logo from "../../../assets/yju_logo.svg";
 import logo from "../../../assets/untityLogo.png";
 

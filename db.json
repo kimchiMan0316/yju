@@ -7,37 +7,48 @@
       "password": "1234",
       "state": 777,
       "createAt": "2025-05-07",
+      "profilePhoto": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAMCAgICAgMCAgIDAwMDBAYEBAQEBAgGBgUGCQgKCgkICQkKDA8MCgsOCwkJDRENDg8QEBEQCgwSExIQEw8QEBD/2wBDAQMDAwQDBAgEBAgQCwkLEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBD/wAARCACTAJMDASIAAhEBAxEB/8QAHQAAAQQDAQEAAAAAAAAAAAAABAADBQYBAgcICf/EADUQAAEDAwIEAwgCAgEFAAAAAAEAAgMEESEFEgYHMUEiUWEIExQVMnGBkUKhJFLBFhdTcrH/xAAbAQABBQEBAAAAAAAAAAAAAAACAAEDBAYFB//EACMRAAIDAAIDAAIDAQAAAAAAAAABAgMRBCESEzEFQSIyQlH/2gAMAwEAAhEDEQA/AJvR+TnBFMxskGmQNkPXwghTkXKDgmRzpqnRoCP47W2K20vVWQyuZKSG26lWGm1JsjLMeCCsrXZE9bt5N3+WD6Ryl4DkLo36VCY7dHBB61yM4Cc/dBpsLABfGFNtqHAWfK5mOxTc8z5AB8W8/lT+yvPhR9/IUt8ym/8AbbhHTWmGHT4HG/Wy0PL7QKuQFmnxADrZgVy+FjcNz33RFLAwE+7b+VXnal8FbzZRj29KpUcv+H3QhjdKiG3odgS0nR5NMqCIfBF2HkrxIxojsev2UVUMaHGwVCyOvTnPkSmsY5HN4LOKy6YWsCg/eBpsCm31FsFw/aUXhE46ESTgAnqoqtnFnG/VbVFSOoOFEVlQZHW3WIPTzUi7B8VHssfBFG7UdZYXC7Y8ldc2hrdnSwwqby10n4XT3V8jQHym4urrJ4s46dF3OLDwhpmudZ7LMGpCLW6oWR2DZPSG4NghZH4t0U/wpDEjiOpTErsFOPd1JQ8rvX8oR0aF3oktC8+Z/SSQRyV8bI37XixCZqpammc2WCV1geinqnSJDLuA3D7Js6G+UeJhz6LNLv4ei+5Z2RXzisqXtu4gdDZTlDKZQLm59Smo9ALG292evkpGl0t8RBAsj2RDO1YGQR4Bcf2pCIxRjwj7oVkLmjr0TtrHKdNlGyXkOSSh2AEBUi3iCJJsb2Q9UPDcIZEcH+iKqHFrr3QjpSXdQiqp1jayjah4juT2UWliK6MVM20JrSNOqdc1SKjgF7uu4+QUbU1rpH7RdX3lTSt+YyzEAuDO/UK/xq/JrSpzLPVW2jpunUbKGijpmMHgaBaydeRm2Lp0jNyh5TY4K7qSisMm25PWMSOti480JMeyIkIuhZMmxQtaMMvOMoWRx6E2RDyehQspNzg47WQvoJDTnG5SWpvfqB+UkhyObFGfqAREcEJbmyjhPgZKyavaL7rLOR6NrNMkfdQg9lmRkXVob97qMdWg9X/2nWVLbfUpdRDJMKLGgYP9piRviz0W3xADbkhDy1GfCf2mI1FmS4AG39oOokG3qlPOwfyyoqurQ1h8Q/aifbJIwemlbUMYS57gq5qOotddjT+U1qetNG4Ei3bKgxViZxcCTlPFLeyx44iVheCdx+66ZymO+vqHH/VctpmPJv8A0un8pnf59Q3yarlFi9iSOfzq9obZ1SQ2wChpDa6Jc47b26IORwuR5rty+mUQy/pc9ULJu/kMFEvNhc9kLI7cShHGZHABCvJNyAnpjZ3omHSDt3yhDBy0k3SWrn3Jv/SSQim/NA65Dx9rrV+pH/YH8qnHU5IiSHLPzoMNnFZtHoLrLR8zs8gutZEQ6o1xzJ0VKfrV3WAWBrO15ycjGU+kTrbL/wDM2DrIm5dSa5u7fhUT525x+s4TE2vujBBc78JxlTv0t9brTImuPvOiqer8Rl12Ndf7FQtdq9RU4Y45QTI5Zbl1ySmeEqqSHH1M1W6xJyVMabQEAbjcprTdMvZzm3Vko6QxNuQEDl/wGSRpFHssSLLoHKl4GoVVwL2GVSHsBBcD07K0cvKwUmrv3HaJGhS8V5Ymyl+QXlQ0jsDnDNihpiALFy2Moc1r2uuLftMSkA2/5Wj3TF/OmMvN8H9oZ5seqfc83OMId5AvhJiQxLklDS2Ax2T0hANx3Q0hzYlCGNktv2SWjupSSEcMqL9AUG8u6koqQlzyChpGuOAsyj0pDDpA27rklNfEuLrZsnDTylxaR1TjKF24Dv5pA6gYmQ4DjlOMpXyZNypJlBa1wT62RsNI3oG2PqEtBlJIho9N3kXUjS6YxoHdSsNC0GxCNgpXE7dgAQtNkTsQxQ0jWYsCj/hyBuJtbsnoadrBkWKdc0OHaydLCu599Ec+Nwu44usUWpnTKtlUZLAEImoaAwkEeirHElSKWgfO59g0gn0Txk09E4K2LTPQej6tDU6fFUSPAY4DJPRGucHG7S0/8rnXBdWNa4PdA2Ys95D4XDzthVfkdzeOv6xrfLvXqgfONCqCxu7BkiP0n1wtLx27K0zGcmv12NHaZWm/khZetiU++S52E9kLKbG10bKyGZBYdchCyOyU/K65PkhZXA/SLFCEak5STLnm5ykkI4/LS2N7Jr4XNg0KTEbpXm46FOx0tvqzY+SzK+Hoyn0R8VIN2WX/AAnvgxfoBdSJhjaBawPmtHXwLgpyJyYMKRjW3cnYo/8AxtTzYS8X7IiGMRjATEUptmIacNyQS5GRMAFwLLWNhw44RLA0d0iKUjX3eLlNSvaG4GU/se4m5wmpmNY03AukApaATEuaSVSOP/eO4d1FjD4hA4j7gK6VTyGuKoHMOsNNw5XuYfE6JzG+pOEl08LFfS0uPst8QzcQcuKSukvuYXQuv3LTZcF9pSTW+RvO/SObnD7THS1zm09Y1hIDm372/K9I8heGxwpy002hbH7t74/eO89zsn/6qd7WnBH/AFryprnU8Qkq6BvxEdxc3blafhvxgomP5clO+R2XgDj3R+YPDVDxHo1UyaOoiBdtN9jrZb91YJC43JyF80fZq59avyxrhps8hk0uZ499Tk/R5ub5L6GcJca6Hxro0Os6FWsqIZBmzrlp8j5FSzra7KjWExIcW/KEkI/PZESHcOqElsMW6YUIjTc3uksH7BJIY5vTubvILsFHsbGRa/ZQzpfdOv6rcajbGFmFJHofjofMAMBaMy6xsEKyq94Rkko2AXAPf7IgJrAiOKzb4T0cbepCTA51htx5ouKnO65CSWlSU8NY4nPNySB5p9kDR9Rv6pzYGhYMoaNtlIoorys0Zk2MQFTKRfoiKiUZuouonvfcQo2S1oEqpyGuBVH4ipHa5q2n6BFkVEzXTDrZoVr1CtZTwvkkOACb36Lblfw/JqWqz8T1kZ25bBuHQeaOmv2TSDvtVFLkdRooI6DSoKWEANiYGgIHVqaDVdNqdNqImujqI3RkH1CPrJC1ob2UdJI8WAxlaKteGIx0v5S8j5dc0eHncv8AmTq2lRHZHDUmWP8A9XG9l0nkxzy1LlzqsWp0dQ6XTJj/AJNIXGw8yFCe1/Ruo+bdVM8bWTxg3XIdE1QU5+Gc8hrsC66EckuwcaPrhwPzB4e490SDW9CrYpo5mglgcC5h8iFNzOuNo8+q+XHLzm3xTyw1gVug1zmRlwMlO43jeO+F7f5S+0nwnzGpWU1fNHp2qWF4ZHABx9FBbS12htOyXPqkmhKx4D2u3Ai4IOCkq3ixjmk1M94HWxym49Km6iS9yp74VhOOi3bTsaMAXWX8ezfqzxI6loXsHispWCnDQNwSa2xAKe3NbjuiRDZNyH4WMaALJ7fY2shGzhvQ5WRPuypo4ipNNhTntte6GmeB3/S0fPtCDmqsEONk7aAURuqmDbjffzUXVTAg3yn55A4G5UDq9eKaN7i4ANF7qBtFuqPeAla5+q18GjQuzO4B3o1dj0Wgg0nTIKKABrY2i9h3XM+VeiS6hVTcSVYu1xtED2HmuqSyCNlwLea6nBqyLkzi/leT5S9SBaue8obuNvJC1DtrcrSSUPnv5LSqeSwhq6O4zkdaeHvbroIouJdK1KOOzpGEONl5WdK6ObeXZGR6L2F7d1N/j6RUhuR3XjWRxLs+Sv19oLolI9RkkIL5PEPVSdJxPWUVRFUQ1D45YvoexxDh+lUy9xOOoWRK8HLjhTaRtI9F6V7WXM7SdOg05upNlbTs2B7jkj1SXnUzyf7u/aSDxQOH18iqw8C4Cc983p3UGJZGd8JxlY8PDTlYj6bpolHyndhyXvbncSg90juvfKfa02uSnRGwkS43dln3rT0Q929OyblmazvZERjss204OEFUylx8P9rWeqNt18BR1ZWuaMnCFvR1EVdXNgYS51rdlTNUlqNf1Kn0SjcQ6d4uR2b6p/XNV2teA4l3QAK4cquDJYmu4k1Vl5pR4GkfSEdFbtliB5Fy49bf7L/w5pEGiaVBQRDaGNAOOpsiKyTYC1zhay3kkLBcEWUVW1W4kB3Vd6MfGKRlJzdj8maRybpC7tdYqHHaR5oeBwJte9lmd/gwUtwE8o+3VE5/Dml1G7Afa35XiW+5wF7XNrle0fbpqzHomk018OeV4pe656rpVf1GbxG8rRFIWB7X2/kOhTZdlYJusKVIhcjO4pLCSfBvJn1ymYzHhWkQAdcDKSSwZ6AHRgOy7KzKSMApJI/0Vn9G3kgYKFlJv1SSTBDEhO3qofV3uawuabGySSb9hR+kHo0ENXrlLHUsEjS65BXfKdjIaNkcTQ1oAAACSS6vB+nF/KP+QNUuIa4XwoeYXBv5JJLoM4v7G48Odb0TdSTY5SSUbHPIft0E/CaS2+Lrxq5JJdSr+iBn8NUkklOiBiSSSSGP/9k=",
+      "message": ""
+    },
+    {
+      "id": 2,
+      "username": "김지성",
+      "userId": "root1",
+      "password": "1234",
+      "state": 777,
+      "createAt": "2025-05-07",
       "profilePhoto": "",
       "message": ""
     },
     {
-      "username": "박선호",
-      "userId": "root1",
-      "password": "1234",
-      "state": 1,
-      "createAt": "2025-05-12 18:59:15",
-      "profilePhoto": "",
-      "id": 2
-    },
-    {
-      "username": "유카",
+      "id": 3,
+      "username": "오예찬",
       "userId": "root2",
       "password": "1234",
-      "state": 1,
-      "createAt": "2025-05-13 17:17:08",
+      "state": 777,
+      "createAt": "2025-05-07",
       "profilePhoto": "",
-      "message": "",
-      "id": 3
+      "message": ""
     },
     {
-      "username": "박설호",
+      "id": 4,
+      "username": "조건하",
       "userId": "root3",
       "password": "1234",
-      "state": 1,
-      "createAt": "2025-05-15 15:27:39",
+      "state": 777,
+      "createAt": "2025-05-07",
       "profilePhoto": "",
-      "message": "",
-      "id": 4
+      "message": ""
+    },
+    {
+      "id": 5,
+      "username": "안태형",
+      "userId": "root4",
+      "password": "1234",
+      "state": 777,
+      "createAt": "2025-05-07",
+      "profilePhoto": "",
+      "message": ""
     }
   ],
   "session": [
@@ -51,11 +62,59 @@
       "uid": 1,
       "id": 2
     },
-
     {
-      "sessionId": 1747373957366,
+      "sessionId": 1747718918935,
       "uid": 1,
-      "id": 8
+      "id": 3
+    },
+    {
+      "sessionId": 1747722519195,
+      "uid": 1,
+      "id": 4
+    },
+    {
+      "sessionId": 1747722553563,
+      "uid": 1,
+      "id": 5
     }
-  ]
+  ],
+  "post": [
+    {
+      "id": 1,
+      "title": "마루타실험을 진행해봤어요",
+      "article": "원하는 느낌 안 나오면 폰트도 바꿔라. 자간은 폰트랑 같이 가는 거다. 더 세밀한 타이포그래피 설정 원하면, CSS font-feature-settings 도 써볼 수 있음. 그건 다음 단계. 필요하면 내가 직접 자간 비교 샘플도 만들어줄게. 요청만 해라.",
+      "createAt": "2025-05-07",
+      "authorId": 1
+    },
+    {
+      "id": 2,
+      "title": "최종 팁",
+      "article": "폰트 따라 자간 느낌이 달라진다 (나눔고딕이랑 Pretendard 다름)",
+      "createAt": "2025-05-07",
+      "authorId": 1
+    },
+    {
+      "id": 3,
+      "title": "마루타실험을 진행해봤어요",
+      "article": "원하는 느낌 안 나오면 폰트도 바꿔라. 자간은 폰트랑 같이 가는 거다. 더 세밀한 타이포그래피 설정 원하면, CSS font-feature-settings 도 써볼 수 있음. 그건 다음 단계. 필요하면 내가 직접 자간 비교 샘플도 만들어줄게. 요청만 해라.",
+      "createAt": "2025-05-07",
+      "authorId": 1
+    },
+    {
+      "id": 4,
+      "title": "마루타실험을 진행해봤어요",
+      "article": "원하는 느낌 안 나오면 폰트도 바꿔라. 자간은 폰트랑 같이 가는 거다. 더 세밀한 타이포그래피 설정 원하면, CSS font-feature-settings 도 써볼 수 있음. 그건 다음 단계. 필요하면 내가 직접 자간 비교 샘플도 만들어줄게. 요청만 해라.",
+      "createAt": "2025-05-07",
+      "authorId": 1
+    },
+    {
+      "id": 5,
+      "title": "마루타실험을 진행해봤어요",
+      "article": "원하는 느낌 안 나오면 폰트도 바꿔라. 자간은 폰트랑 같이 가는 거다. 더 세밀한 타이포그래피 설정 원하면, CSS font-feature-settings 도 써볼 수 있음. 그건 다음 단계. 필요하면 내가 직접 자간 비교 샘플도 만들어줄게. 요청만 해라.",
+      "createAt": "2025-05-07",
+      "authorId": 1
+    }
+  ],
+  "comment": [],
+  "member": []
 }
