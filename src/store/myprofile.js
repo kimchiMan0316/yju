@@ -15,8 +15,18 @@ export const useMyProfile = create(
         set(() => ({
           myProfile: { ...newProfile },
         })),
+
       getMyProfile: () => get().myProfile,
+
+      editMyProfile: (arg, value) =>
+        set((state) => ({
+          myProfile: {
+            ...state.myProfile,
+            [arg]: value,
+          },
+        })),
     }),
+
     {
       name: "myProfile",
     }

@@ -11,7 +11,11 @@ export const Profile = () => {
 
   return (
     <Container>
-      {me ? <MyProfileArea /> : <ProfileArea />}
+      {me ? (
+        <MyProfileArea />
+      ) : (
+        <ProfileArea username={username} message={message} />
+      )}
       <ArticleArea id={id} />
     </Container>
   );

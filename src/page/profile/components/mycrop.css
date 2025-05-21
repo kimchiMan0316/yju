@@ -14,7 +14,7 @@
   pointer-events: none;
 }
 
-.ReactCrop__crop-selection::after {
+/* .ReactCrop__crop-selection::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -22,7 +22,8 @@
   border-radius: 9999px;
   z-index: 3;
   pointer-events: none;
-}
+} */
+
 .ReactCrop__drag-handle {
   width: 8px;
   height: 8px;

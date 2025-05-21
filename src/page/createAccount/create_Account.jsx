@@ -3,14 +3,13 @@ import { Input } from "../../components/input/input";
 import useChange from "../../hooks/useChange";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/untityLogo.png";
-import { useFetch } from "../../hooks/useFetch";
 import dayjs from "dayjs";
 import { useModal } from "../../hooks/useModal";
 import { Modal } from "../../components/modal/modal";
 import { CreateAccountModal } from "./components/modal";
 
 export const CreateAccount = () => {
-  const [value, setValue, onChange] = useChange({
+  const { inputValue, setInputValue, onChange } = useChange({
     username: "",
     userId: "",
     checkedId: true,
@@ -18,67 +17,66 @@ export const CreateAccount = () => {
     checkPassword: "",
   });
   const navigate = useNavigate();
-  const { fetcher } = useFetch();
   const { isModal, openModal, closeModal } = useModal();
-
-  console.log(value);
 
   const onSubmit = async (e) => {
     e.preventDefault();
 
     if (
-      value.username.length < 1 ||
-      value.userId.length < 4 ||
-      value.password.length < 4
+      inputValue.username.length < 1 ||
+      inputValue.userId.length < 4 ||
+      inputValue.password.length < 4
     ) {
       alert("회원가입 정보를 적절하게 입력해주세요.");
       return;
     }
-    console.log(value.password, value.checkPassword);
-    if (value.password !== value.checkPassword) {
+    if (inputValue.password !== inputValue.checkPassword) {
       alert("비밀번호를 재확인 해주세요.");
       return;
     }
 
-    const createAccount = await fetcher({
-      url: "/user",
+    const createAccount = await fetch("http://localhost:5000/user", {
       method: "POST",
-      body: {
-        username: value.username,
-        userId: value.userId,
-        password: value.password,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: inputValue.username,
+        userId: inputValue.userId,
+        password: inputValue.password,
         state: 1,
         createAt: dayjs().format("YYYY-MM-DD HH:mm:ss"),
         profilePhoto: "",
         message: "",
-      },
+      }),
     });
-    if (createAccount) {
+    const res = await createAccount.json();
+    console.log(res);
+
+    if (typeof res.id === "number") {
       openModal();
-      return;
     } else {
       alert("회원가입 정보를 확인해보세요.");
     }
   };
 
+  // 아이디 중복 체크
   const checkId = (e) => {
     onChange(e, "userId");
-    console.log(value);
     const id = e.target.value;
 
     fetch(`http://localhost:5000/user?userId=${id}`)
       .then((data) => data.json())
       .then((response) => {
         if (response.length > 0) {
-          setValue((state) => {
+          setInputValue((state) => {
             return {
               ...state,
               checkedId: false,
             };
           });
-          console.log(response[0]);
         } else {
-          setValue((state) => {
+          setInputValue((state) => {
             return {
               ...state,
               checkedId: true,
@@ -96,8 +94,8 @@ export const CreateAccount = () => {
   return (
     <div className="flex flex-col w-screen h-screen justify-center items-center ">
       {isModal && (
-        <Modal closeModal={modalHandler} className="p-10">
-          <CreateAccountModal value={value} onClick={modalHandler} />
+        <Modal closeModal={closeModal} className="p-10">
+          <CreateAccountModal value={inputValue} onClick={modalHandler} />
         </Modal>
       )}
       <div className="w-48 mb-4">
@@ -109,32 +107,34 @@ export const CreateAccount = () => {
         }}
         className="w-96"
       >
-        <h1 className="text-brand font-bold text-3xl my-8 ml-2">회원가입</h1>
+        <h1 className="text-brand font-bold text-3xl my-8 ml-2 dark:text-brand-dark">
+          회원가입
+        </h1>
         <Input
-          value={value.username}
+          value={inputValue.username}
           className="bg-[#ededed] border-none"
           onChange={(e) => onChange(e, "username")}
         >
           이름
         </Input>
         <Input
-          value={value.userId}
+          value={inputValue.userId}
           className="bg-[#ededed] border-none"
           onChange={(e) => checkId(e)}
-          error={!value.checkedId}
+          error={!inputValue.checkedId}
           message="이미 사용중인 아이디입니다."
         >
           아이디
         </Input>
         <Input
-          value={value.password}
+          value={inputValue.password}
           className="bg-[#ededed] border-none"
           onChange={(e) => onChange(e, "password")}
         >
           비밀번호
         </Input>
         <Input
-          value={value.checkPassword}
+          value={inputValue.checkPassword}
           className="bg-[#ededed] border-none "
           onChange={(e) => onChange(e, "checkPassword")}
         >

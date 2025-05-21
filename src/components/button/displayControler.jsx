@@ -6,7 +6,7 @@ export const DisplayControler = () => {
   return (
     <div
       onClick={toggleDark}
-      className={`w-11 h-11 flex justify-center items-center rounded-full overflow-hidden hover:bg-[#ededed] dark:hover:bg-card-dark cursor-pointer`}
+      className="w-11 h-11 justify-center items-center rounded-full overflow-hidden hover:bg-[#ededed] dark:hover:bg-card-dark cursor-pointer hidden md:flex"
     >
       {isDark ? (
         <svg
