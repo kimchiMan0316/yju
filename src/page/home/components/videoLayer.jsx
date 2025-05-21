@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import yju_video from "../../../assets/yju-youtube.webm";
-import { Button } from "../../../components/button/button";
 import yju_logo from "../../../assets/yju_logo.svg";
 import logo from "../../../assets/untityLogo.png";
+import { useNavigate } from "react-router-dom";
 
 export const VideoLayerComponent = () => {
   const videoRef = useRef(null);
   const [videoHeight, setVideoHeight] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleResize = () => {
@@ -20,21 +21,21 @@ export const VideoLayerComponent = () => {
   }, []);
 
   return (
-    <div className="flex justify-between items-center mt-4 w-full">
+    <div className="flex justify-between items-center mt-4 w-full ">
       <video
         ref={videoRef}
         autoPlay
         muted
         loop
         playsInline
-        className="w-[1000px] aspect-video rounded-3xl overflow-hidden filter brightness-90"
+        className="w-[1000px] aspect-video rounded-3xl overflow-hidden filter brightness-90 "
       >
         <source src={yju_video} type="video/webm" />
         브라우저가 비디오 태그를 지원하지 않습니다.
       </video>
 
       <div
-        className="flex ml-2 w-[200px] flex-col gap-2"
+        className=" ml-2 w-[200px] flex-col gap-2 hidden lg:flex"
         style={{ height: `${videoHeight}px` }}
       >
         <div className="w-full h-1/2 flex flex-col justify-center items-center cursor-pointer hover:bg-[#d8d8d8] bg-brand-point dark:bg-card-dark rounded-3xl">
@@ -60,7 +61,10 @@ export const VideoLayerComponent = () => {
           </a>
         </div>
 
-        <div className="w-full h-1/2 flex flex-col justify-center items-center bg-button-point hover:bg-button-pointHover cursor-pointer rounded-3xl">
+        <div
+          onClick={() => navigate("/member")}
+          className="w-full h-1/2 flex flex-col justify-center items-center bg-button-point hover:bg-button-pointHover cursor-pointer rounded-3xl"
+        >
           <div className="flex flex-col items-center justify-center w-full ">
             <div className="w-32 aspect-[16/6]">
               <img src={logo} alt="logo" />

@@ -1,46 +1,42 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { PostingBox } from "./box/postingBox";
+import { getPostingList } from "../api/getPostingList";
 
 export const ArticleArea = ({ id }) => {
-  // id기반으로 글 검색
-  const [postList, setPostList] = useState([
-    {
-      id: 1,
-      title: "글 1",
-      article: "addgsdkflgjslkdfjglks",
-      createAt: "2025/04/12-12:12:12",
-    },
-    {
-      id: 2,
-      title: "글 2",
-      article: "addgsdkflgjslkdfjglks",
-      createAt: "2025/04/12-12:12:12",
-    },
-    {
-      id: 3,
-      title: "글 3",
-      article: "addgsdkflgjslkdfjglks",
-      createAt: "2025/04/12-12:12:12",
-    },
-  ]);
+  const [postList, setPostList] = useState([]);
+
+  useEffect(() => {
+    const fetchPost = async () => {
+      try {
+        const response = await getPostingList(id);
+        setPostList(response ?? []);
+      } catch (error) {
+        console.error("error:", error);
+        setPostList([]);
+      }
+    };
+    fetchPost();
+  }, [id]);
+
+  const hasPosts = postList.length > 0;
 
   return (
-    <div className="border-t-2 border-[#ededed] dark:border-[#191b22]">
-      <p className="text-center font-bold m-1 mb-2 text-lg dark:text-brand-dark text-brand-sub">
+    <div className="px-2">
+      <p className="text-center border-t-2 pt-2 pb-1 border-[#ededed] dark:border-[#191b22] font-bold m-1 mb-2 text-lg dark:text-brand-dark text-brand-sub">
         게시글
       </p>
-      <div className="grid grid-cols-3 gap-1">
-        <div className="bg-red-500 aspect-square rounded-md">1</div>
-        {postList.map((item) => (
-          <div key={item.id} className="grid grid-rows-2 aspect-square">
-            <div className="">
-              <p>{item.title}</p>
-            </div>
-            <div className="bg-brand-point">
-              <article>{item.article}</article>
-              <p>{item.createAt}</p>
-            </div>
-          </div>
-        ))}
+      <div
+        className={
+          hasPosts
+            ? "grid grid-cols-3 gap-1"
+            : "flex justify-center items-center h-[40vh]"
+        }
+      >
+        {hasPosts ? (
+          postList.map((item) => <PostingBox key={item.id} item={item} />)
+        ) : (
+          <p className="font-bold ">게시글 없음</p>
+        )}
       </div>
     </div>
   );

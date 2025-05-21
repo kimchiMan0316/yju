@@ -1,11 +1,10 @@
 import { useMyProfile } from "../../../store/myprofile";
 import defaultPhoto from "../../../assets/기본이미지.png";
 import { useState } from "react";
-
 import { useModal } from "../../../hooks/useModal";
 import { Modal } from "../../../components/modal/modal";
 import { ImageCropper } from "./imageCropModal";
-import { PlusIcon } from "./plusIcon";
+import { EditButtonIcon } from "./icon/editButtonIcon";
 
 export const MyProfileArea = () => {
   const { id, message, username, profilePhoto } = useMyProfile(
@@ -22,7 +21,7 @@ export const MyProfileArea = () => {
     <>
       {isModal && (
         <Modal closeModal={closeModal}>
-          <ImageCropper closeModal={closeModal} />
+          <ImageCropper closeModal={closeModal} id={id} />
         </Modal>
       )}
       <div className="flex flex-col my-4 justify-center items-center h-96">
@@ -34,36 +33,24 @@ export const MyProfileArea = () => {
               src={profilePhoto ? profilePhoto : defaultPhoto}
               alt="profilePhoto"
             />
-            <div className="absolute z-[3] right-0 bottom-0">
-              <PlusIcon className="border rounded-full bg-slate-50 text-black" />
+          </div>
+          <div className="absolute bottom-0 z-[1] h-56 w-96 rounded-xl bg-brand-point dark:bg-card-dark flex flex-col justify-start ">
+            <div className="p-2 flex items-center justify-end">
+              <div
+                onClick={editorHandler}
+                className="bg-brand-point cursor-pointer dark:bg-card-dark dark:hover:bg-card-hover text-base text-right rounded-lg p-1"
+              >
+                <EditButtonIcon className="w-6" />
+              </div>
+            </div>
+            <div className="text-center mt-14">
+              <p className="text-3xl font-bold ">{username}</p>
+              <p className="my-2 text-brand-sub">
+                {message ? message : `${username}의 프로필`}
+              </p>
             </div>
           </div>
-          <div className="absolute bottom-0 z-[1] h-56 w-96 rounded-xl bg-brand-point dark:bg-card-dark flex flex-col justify-end items-center">
-            <p className="text-3xl font-bold ">{username}</p>
-            <p className="my-2 text-brand-sub">
-              {message ? message : `${username}의 프로필`}
-            </p>
-            <button
-              onClick={editorHandler}
-              className="bg-[#ededed] dark:bg-card-dark dark:hover:bg-card-hover text-base px-4 py-1 mb-4 rounded-lg"
-            >
-              프로필 편집
-            </button>
-          </div>
         </div>
-
-        {/* <div className="flex flex-col justify-center items-center ml-20">
-          <p className="text-3xl font-bold ">{username}</p>
-          <p className="my-6 text-brand-sub">
-            {message ? message : `${username}의 프로필`}
-          </p>
-          <button
-            onClick={editorHandler}
-            className="bg-[#ededed] dark:bg-card-dark dark:hover:bg-card-hover text-base px-4 py-1 rounded-lg"
-          >
-            프로필 편집
-          </button>
-        </div> */}
       </div>
     </>
   );

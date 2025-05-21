@@ -62,7 +62,32 @@ export const saveSession = async (sessionData) => {
 };
 
 // 세션 제거 함수 (로그아웃 시)
-export const clearSession = () => {
-  sessionStorage.removeItem("sessionId");
-  sessionStorage.removeItem("userId");
+export const clearSession = async () => {
+  const mySession = sessionStorage.getItem("sessionId");
+
+  try {
+    const getSessionIndex = await fetch(
+      `http://localhost:5000/session?sessionId=${mySession}`
+    );
+    const response = await getSessionIndex.json();
+
+    console.log(response);
+
+    const sessionIndex = response[0].id;
+
+    const req = await fetch(`http://localhost:5000/session/${sessionIndex}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const res = await req.json();
+
+    console.log(res);
+  } catch (error) {
+    console.error("로그아웃 오류 : ", error);
+  } finally {
+    sessionStorage.removeItem("sessionId");
+    sessionStorage.removeItem("uid");
+  }
 };

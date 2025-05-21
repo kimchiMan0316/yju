@@ -14,7 +14,7 @@ export default function useChange(values) {
     });
   };
 
-  return [inputValue, setInputValue, onChange];
+  return { inputValue, setInputValue, onChange };
 }
 
 // 요소 구조
