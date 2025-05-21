@@ -1,42 +1,41 @@
 import { useEffect, useState } from "react";
 import { PostingBox } from "./box/postingBox";
+import { getPostingList } from "../api/getPostingList";
 
 export const ArticleArea = ({ id }) => {
-  // id기반으로 글 검색
   const [postList, setPostList] = useState([]);
 
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const req = await fetch(`http://localhost:5000/post?authorId=${id}`);
-        const res = await req.json();
-
-        setPostList(res);
+        const response = await getPostingList(id);
+        setPostList(response ?? []);
       } catch (error) {
-        console.log(error);
+        console.error("error:", error);
+        setPostList([]);
       }
     };
     fetchPost();
   }, [id]);
 
+  const hasPosts = postList.length > 0;
+
   return (
-    <div className="border-t-2 border-[#ededed] dark:border-[#191b22]">
-      <p className="text-center font-bold m-1 mb-2 text-lg  dark:text-brand-dark text-brand-sub">
+    <div className="px-2">
+      <p className="text-center border-t-2 pt-2 pb-1 border-[#ededed] dark:border-[#191b22] font-bold m-1 mb-2 text-lg dark:text-brand-dark text-brand-sub">
         게시글
       </p>
       <div
         className={
-          postList.length > 0
+          hasPosts
             ? "grid grid-cols-3 gap-1"
             : "flex justify-center items-center h-[40vh]"
         }
       >
-        {postList.length > 0 ? (
-          postList.map((item) => <PostingBox item={item} />)
+        {hasPosts ? (
+          postList.map((item) => <PostingBox key={item.id} item={item} />)
         ) : (
-          <div className="flex justify-center items-center h-full">
-            <p className="font-bold ">게시글 없음</p>
-          </div>
+          <p className="font-bold ">게시글 없음</p>
         )}
       </div>
     </div>

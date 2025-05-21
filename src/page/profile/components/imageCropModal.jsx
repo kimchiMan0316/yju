@@ -8,7 +8,7 @@ import { useFetch } from "../../../hooks/useFetch";
 
 export const ImageCropper = ({ closeModal, id }) => {
   const [imgSrc, setImgSrc] = useState("");
-  const [crop, setCrop] = useState({});
+  const [crop, setCrop] = useState({ unit: "%" });
   const [previewUrl, setPreviewUrl] = useState("");
   const [size, setSize] = useState(false);
   const imgRef = useRef(null);
@@ -92,7 +92,7 @@ export const ImageCropper = ({ closeModal, id }) => {
     <div>
       <div className="flex justify-between items-center pb-2">
         <p
-          className="font-semibold text-brand-sub hover:text-red-700"
+          className="font-semibold cursor-pointer text-brand-sub hover:text-red-700"
           onClick={() => closeModal()}
         >
           취소
@@ -107,7 +107,7 @@ export const ImageCropper = ({ closeModal, id }) => {
           </p>
         ) : (
           <p
-            onClick={selectImage}
+            onClick={imgSrc ? selectImage : null}
             className={`font-semibold  ${
               imgSrc !== ""
                 ? "text-[#38b4ff] hover:text-[#31a2e6]"
@@ -160,8 +160,14 @@ export const ImageCropper = ({ closeModal, id }) => {
       )}
 
       {image && (
-        <div className="h-[600px] w-[600px] flex justify-center items-center">
+        <div className="h-[500px] w-[500px] lg:h-[600px] lg:w-[600px] relative flex justify-center items-center">
           <img className="h-full w-full" src={previewUrl} alt="미리보기" />
+          <div className="absolute w-full h-full bg-black/50"></div>
+          <img
+            className="absolute h-full w-full rounded-full "
+            src={previewUrl}
+            alt="미리보기"
+          />
         </div>
       )}
     </div>

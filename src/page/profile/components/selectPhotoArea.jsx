@@ -3,7 +3,7 @@ import { CameraIcon } from "./icon/cameraIcon";
 
 export const SelectPhotoArea = ({ handleFileChange }) => {
   return (
-    <label htmlFor="img">
+    <label htmlFor="img" className="cursor-pointer">
       <div className="flex flex-col justify-center items-center">
         <CameraIcon />
         <p className="text-lg font-bold mb-8 dark:text-brand-sub">

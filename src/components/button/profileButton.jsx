@@ -14,11 +14,11 @@ export const ProfileButton = () => {
     <>
       <div
         onClick={onClick}
-        className="relative flex justify-center w-10 h-10 items-center  border-[#ededed]"
+        className="flex justify-center w-10 h-10 items-center  border-[#ededed]"
       >
         <div>
           <img
-            className="object-cover  w-10 h-10 cursor-pointer rounded-[50%] overflow-hidden"
+            className="object-cover  w-10 h-10 cursor-pointer rounded-full overflow-hidden"
             src={profilePhoto ? profilePhoto : defaultProfile}
             alt="profileImage"
           />

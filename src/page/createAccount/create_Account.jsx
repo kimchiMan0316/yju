@@ -107,7 +107,9 @@ export const CreateAccount = () => {
         }}
         className="w-96"
       >
-        <h1 className="text-brand font-bold text-3xl my-8 ml-2">회원가입</h1>
+        <h1 className="text-brand font-bold text-3xl my-8 ml-2 dark:text-brand-dark">
+          회원가입
+        </h1>
         <Input
           value={inputValue.username}
           className="bg-[#ededed] border-none"

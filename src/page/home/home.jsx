@@ -21,15 +21,14 @@ export const Home = () => {
         )}
         <Container page={true} className="bg-brand">
           <VideoLayerComponent />
-          {/* "w-full h-48 flex justify-between items-center" */}
-          <div className="md:grid md:grid-cols-2 flex flex-col gap-2 mt-2">
+          <div className="md:grid md:grid-cols-2 flex gap-2 mx-2 mt-2">
             <LongBox
               title="현지학기제"
               article="일본에서 보내는 방학생활을 알아봐요"
               to="/localSemester"
             >
               <img
-                className="w-[4.5rem] h-[4.5rem] mr-1"
+                className="w-12 h-12 md:w-[4.5rem] md:h-[4.5rem]"
                 src="https://t1.kakaocdn.net/kakaocorp/kakaocorp/admin/category/1ee6415a019300001.png?type=thumb&opt=C72x72.fwebp"
                 alt="나팔"
               />
@@ -40,7 +39,7 @@ export const Home = () => {
               to="/post"
             >
               <img
-                className="w-20 h-20"
+                className="w-12 h-12 md:w-[4.5rem] md:h-[4.5rem]"
                 src="https://t1.kakaocdn.net/kakaocorp/kakaocorp/admin/6565ef4d017800001.png?type=thumb&opt=C72x72.fwebp"
                 alt="백열등"
               />

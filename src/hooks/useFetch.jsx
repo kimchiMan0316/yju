@@ -8,30 +8,8 @@ export const useFetch = () => {
   const navigate = useNavigate();
 
   const fetcher = async ({ url, method, body }, callback) => {
-    if (method === "GET" || method === "DELETE") {
-      setLoading(true);
-
-      try {
-        const session = await checkSession();
-        if (!session) {
-          navigate("/login", { replace: true });
-          return;
-        }
-
-        const request = await fetch(`http://localhost:5000${url}`);
-        const response = await request.json();
-        if (response.length > 0) {
-          setResponse(response);
-          setLoading(false);
-          if (callback) {
-            callback();
-          }
-          return;
-        }
-      } catch (error) {}
-    }
-
     setLoading(true);
+
     try {
       const session = await checkSession();
       if (!session) {
@@ -41,22 +19,28 @@ export const useFetch = () => {
 
       const request = await fetch(`http://localhost:5000${url}`, {
         method: method,
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(body),
+        headers:
+          method !== "GET" && method !== "DELETE"
+            ? { "Content-Type": "application/json" }
+            : undefined,
+        body:
+          method !== "GET" && method !== "DELETE"
+            ? JSON.stringify(body)
+            : undefined,
       });
+
       const response = await request.json();
-      if (response.length > 0) {
-        console.log(response);
-        setResponse(response);
-        if (callback) {
-          callback();
-        }
-        return true;
+
+      setResponse(response);
+
+      // 콜백 호출
+      if (callback && typeof callback === "function") {
+        callback();
       }
+
+      return true;
     } catch (error) {
-      console.log(error);
+      console.error("Fetcher Error:", error);
       return false;
     } finally {
       setLoading(false);

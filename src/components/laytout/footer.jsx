@@ -9,13 +9,13 @@ export const Footer = React.memo(() => {
   const zustand =
     "https://blog.kakaocdn.net/dn/c6iYkh/btsHGAFFlRR/azRoShzk9xNeTJizFBh2O1/img.png";
   return (
-    <div className="w-screen h-36 flex justify-center dark:bg-brand-dark">
+    <div className="w-screen h-36 flex justify-center items-center dark:bg-brand-dark">
       <div className="w-[1200px] h-36 relative border-t-[1px] border-[#ededed] dark:border-[#3d3d3d]">
         <div className="grid grid-cols-2 gap-4 px-2 py-5">
           <div className="text-sm text-[#8b95a1]">
             <p>service | maruta company</p>
             <p>Tech Stack | react redux/toolkit zustand tailwindcss</p>
-            <div className="w-full h-10 flex mt-4 items-center">
+            <div className="w-full h-10 mt-4 items-center hidden md:flex">
               <div className="w-8 h-8">
                 <img className="w-full" src={react_icon} alt="리액트 로고" />
               </div>
@@ -44,12 +44,12 @@ export const Footer = React.memo(() => {
               <br />
               Copyright ⓒ Untity2. All Rights Reserved
             </p>
-            <p className="pt-3 text-[#8b95a1]">
+            <p className="hidden sm:block pt-3 text-[#8b95a1] ">
               영진전문대학교 글로벌캠퍼스 | 영진전문대학교 복현캠퍼스
-              <br />
+            </p>
+            <p className="hidden lg:block  text-[#8b95a1] ">
               주소 : 대구광역시 북구 복현로 35 (복현동, 영진전문대학) | 우편번호
               : (41527)
-              <br />
             </p>
           </div>
         </div>
