@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 export const LongBox = ({ title, article, to, children, className }) => {
   return (
     <div
-      className={`flex justify-around w-full items-center h-40 bg-brand-point dark:bg-card-dark rounded-2xl ${className}`}
+      className={`flex justify-around w-full items-center h-28 md:h-40 bg-brand-point dark:bg-card-dark rounded-2xl ${className}`}
     >
-      <div className="flex items-center mx-2 md:mx-0">
+      <div className="flex items-center">
         {children}
         <div className="flex flex-col ml-4">
           <p className="text-2xl md:text-3xl font-bold">{title}</p>

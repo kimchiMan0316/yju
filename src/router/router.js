@@ -10,6 +10,7 @@ import { Member } from "../page/member/member";
 import { LocalSemester } from "../page/localSemester/localSemester";
 import { ErrorPage } from "../page/error/error";
 import { profileLoader } from "./api/profileLoader";
+import { Account } from "../page/account/account";
 
 export const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ export const router = createBrowserRouter([
       {
         path: "/localSemester",
         element: <LocalSemester />,
+      },
+      {
+        path: "/account/:id",
+        element: <Account />,
       },
     ],
   },

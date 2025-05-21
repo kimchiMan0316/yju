@@ -14,7 +14,7 @@ export const EndPoint = () => {
   const width = useTransform(scrollYProgress, [0.1, 0.4], ["80vw", "100vw"]);
 
   return (
-    <div ref={target} className="w-screen flex justify-center items-start">
+    <div ref={target} className="flex w-screen  justify-center items-start">
       <motion.div
         className="flex justify-center items-start overflow-hidden relative"
         style={{ width }}
@@ -25,9 +25,13 @@ export const EndPoint = () => {
           alt="수업"
         />
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center">
-          <h1 className="text-white text-7xl font-bold mb-4">꿈을 위한 도전</h1>
+          <h1 className="text-white text-4xl lg:text-7xl font-bold mb-4">
+            꿈을 위한 도전
+          </h1>
 
-          <h1 className="text-white text-7xl font-bold">영진에서</h1>
+          <h1 className="text-white text-4xl lg:text-7xl font-bold">
+            영진에서
+          </h1>
         </div>
       </motion.div>
     </div>

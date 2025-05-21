@@ -6,7 +6,7 @@ import { useMyProfile } from "../../../store/myprofile";
 import { SelectPhotoArea } from "./selectPhotoArea";
 import { useFetch } from "../../../hooks/useFetch";
 
-export const ImageCropper = ({ closeModal, id }) => {
+export const ImageCropper = ({ closeModal, id, editorHandler }) => {
   const [imgSrc, setImgSrc] = useState("");
   const [crop, setCrop] = useState({ unit: "%" });
   const [previewUrl, setPreviewUrl] = useState("");
@@ -83,6 +83,7 @@ export const ImageCropper = ({ closeModal, id }) => {
       },
       () => {
         editMyProfile("profilePhoto", previewUrl);
+        editorHandler(false);
         closeModal();
       }
     );

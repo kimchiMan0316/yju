@@ -3,7 +3,7 @@ import { Container } from "../../../components/container/container";
 
 export const GoodThing = () => {
   return (
-    <Container page={true} className="mt-10 mb-20">
+    <Container className="mt-10 mb-20">
       <AnimatedContainer>
         <div className="w-full text-center mt-40 mb-24 text-brand-sub text-2xl font-bold">
           <p className="text-3xl font-bold text-brand my-10 dark:text-brand-dark">
@@ -15,7 +15,7 @@ export const GoodThing = () => {
       </AnimatedContainer>
 
       <AnimatedContainer>
-        <div class="grid grid-cols-2 gap-4">
+        <div class="grid grid-rows-4 md:grid-cols-2 gap-4">
           <Card title="현지학기제">
             일본 도시로 6주가 현지교육을 진행합니다.
           </Card>

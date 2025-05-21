@@ -7,6 +7,8 @@ import { LongBox } from "../../components/box/longBox";
 import { Introduce } from "./components/introduce";
 import { GoodThing } from "./components/goodThing";
 import { EndPoint } from "./components/endPoint";
+import { Intro } from "./components/intro";
+import 수업사진 from "../../assets/수업사진.jpg";
 
 export const Home = () => {
   const { isModal, openModal, closeModal } = useModal();
@@ -21,7 +23,7 @@ export const Home = () => {
         )}
         <Container page={true} className="bg-brand">
           <VideoLayerComponent />
-          <div className="md:grid md:grid-cols-2 flex gap-2 mx-2 mt-2">
+          <div className="md:grid md:grid-cols-2 flex gap-2 mt-2">
             <LongBox
               title="현지학기제"
               article="일본에서 보내는 방학생활을 알아봐요"
@@ -49,7 +51,20 @@ export const Home = () => {
       </PageContainer>
 
       <Introduce />
+      <Intro
+        title="일본어"
+        subtitle="일본어 특강"
+        src={수업사진}
+        alt="수업사진"
+      >
+        <p>
+          일본회사에 취업하기 위해서 일본어학습은 필수입니다.
+          <br />
+          일본어 특별강의를 운영해 매일매일 일본어를 학습합니다.
+        </p>
+      </Intro>
       <GoodThing />
+
       <EndPoint />
     </>
   );
