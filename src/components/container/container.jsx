@@ -5,7 +5,7 @@ export const Container = ({ children, page, className }) => {
         page ? "h-[calc(100vh-4rem)]" : "h-auto"
       } ${className}`}
     >
-      <div className="w-[1200px]">{children}</div>
+      <div className="lg:w-[1200px] w-screen px-2">{children}</div>
     </div>
   );
 };

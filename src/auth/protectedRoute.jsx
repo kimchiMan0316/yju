@@ -6,18 +6,16 @@ const ProtectedRoute = ({ children }) => {
   const [auth, setAuth] = useState(null);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const mySession = async () => {
-      const session = await checkSession();
-      setAuth(session);
+  const mySession = async () => {
+    const session = await checkSession();
+    setAuth(session);
 
-      if (!session) {
-        navigate("/", { replace: true });
-        return;
-      }
-    };
-    mySession();
-  }, [navigate]);
+    if (!session) {
+      navigate("/login", { replace: true });
+      return;
+    }
+  };
+  mySession();
 
   if (auth === false) {
     return <Navigate to="/login" replace />;

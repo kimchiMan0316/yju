@@ -17,7 +17,7 @@ export const MenuIcon = () => {
         viewBox="0 0 24 24"
         strokeWidth={1.5}
         stroke="currentColor"
-        className="size-9 md:hidden cursor-pointer hover:opacity-80 z-50"
+        className="size-9 md:hidden cursor-pointer hover:opacity-80 "
         onClick={onToggleSideBar}
       >
         <path

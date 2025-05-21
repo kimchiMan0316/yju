@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { NavLink, useNavigate } from "react-router-dom";
 import { clearSession } from "../../auth/auth";
+import { ProfileButton } from "../button/profileButton";
 
 export const SideMenuBar = ({ state, close }) => {
   const navigate = useNavigate();
@@ -38,23 +39,47 @@ export const SideMenuBar = ({ state, close }) => {
             initial={{ x: "100vw", opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: "100vw", opacity: 0 }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
           >
             <div className="flex flex-col justify-between h-screen items-stretch">
-              <nav className="mt-20 gap-2 flex flex-col justify-center items-center">
-                {page.map((item, index) => (
-                  <NavLink
-                    className={({ isActive }) =>
-                      isActive ? "text-red-700" : ""
-                    }
-                    key={index}
-                    to={item.path}
+              <div>
+                <div className="h-20 flex px-6 py-4 items-start justify-between">
+                  <ProfileButton />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="size-9 md:hidden cursor-pointer hover:opacity-80 "
+                    onClick={close}
                   >
-                    <p className="text-lg font-semibold py-2">{item.label}</p>
-                  </NavLink>
-                ))}
-              </nav>
-
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                    />
+                  </svg>
+                </div>
+                <nav className=" gap-2 flex flex-col justify-center items-center">
+                  {page.map((item, index) => (
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive ? "text-red-700 " : ""
+                      }
+                      key={index}
+                      to={item.path}
+                    >
+                      <p
+                        className="text-lg font-semibold py-2 hover:opacity-50"
+                        onClick={close}
+                      >
+                        {item.label}
+                      </p>
+                    </NavLink>
+                  ))}
+                </nav>
+              </div>
               <div className="text-center mb-2 flex-col gap-2 flex text-lg font-semibold py-2">
                 <p className="cursor-pointer">설정</p>
                 <p

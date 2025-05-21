@@ -22,7 +22,7 @@ export const ArticleArea = ({ id }) => {
 
   return (
     <div className="px-2">
-      <p className="text-center border-t-2 pt-2 pb-1 border-[#ededed] dark:border-[#191b22] font-bold m-1 mb-2 text-lg dark:text-brand-dark text-brand-sub">
+      <p className="text-center border-t-2 pt-2 pb-1 border-[#ededed] dark:border-[#191b22] font-bold m-1 mb-2 text-base dark:text-brand-dark text-brand-sub">
         게시글
       </p>
       <div

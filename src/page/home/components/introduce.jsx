@@ -9,13 +9,13 @@ import 면접준비 from "../../../assets/일본에서 이�
 export const Introduce = () => {
   return (
     <div className="w-full">
-      <div className="py-32">
+      <div className="py-40">
         <AnimatedContainer>
           <p className="text-3xl mb-6 text-center font-bold  mt-20">
             우리는 이런걸 해요.
           </p>
         </AnimatedContainer>
-        <AnimatedContainer delay={0.2}>
+        <AnimatedContainer delay={0.5}>
           <div className="flex flex-col justify-center items-center mb-20">
             <p className="font-medium text-2xl text-brand-sub">
               일본 IT반은 일본 취업을 위해 공부합니다.
