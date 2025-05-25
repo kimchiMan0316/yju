@@ -1,4 +1,5 @@
 import { useMyProfile } from "../../store/myprofile";
+import getPhoto from "../../util/getPhoto";
 
 export const profileLoader = async ({ params }) => {
   const MYUID = Number(sessionStorage.getItem("uid"));
@@ -15,10 +16,12 @@ export const profileLoader = async ({ params }) => {
     const reqProfile = await fetch(`http://localhost:5000/user?id=${id}`);
     const resProfile = await reqProfile.json();
 
+    const profilePhoto = await getPhoto(resProfile[0].profilePhoto);
+
     return {
       id: resProfile[0].id,
       username: resProfile[0].username,
-      profilePhoto: resProfile[0].profilePhoto,
+      profilePhoto: profilePhoto,
       message: resProfile[0].message,
       me: false,
     };

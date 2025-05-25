@@ -8,7 +8,13 @@ import { useFetch } from "../../../hooks/useFetch";
 
 export const ImageCropper = ({ closeModal, id, editorHandler }) => {
   const [imgSrc, setImgSrc] = useState("");
-  const [crop, setCrop] = useState({ unit: "%" });
+  const [crop, setCrop] = useState({
+    unit: "%",
+    x: 50,
+    y: 50,
+    width: 0,
+    height: 0,
+  });
   const [previewUrl, setPreviewUrl] = useState("");
   const [size, setSize] = useState(false);
   const imgRef = useRef(null);
@@ -72,21 +78,43 @@ export const ImageCropper = ({ closeModal, id, editorHandler }) => {
     setImage(true);
   };
 
-  const editProfilePhoto = () => {
-    fetcher(
-      {
-        url: `/user/${id}`,
-        method: "PATCH",
-        body: {
-          profilePhoto: previewUrl,
-        },
-      },
-      () => {
-        editMyProfile("profilePhoto", previewUrl);
-        editorHandler(false);
-        closeModal();
+  const editProfilePhoto = async () => {
+    try {
+      const getPhotoId = await fetch(`http://localhost:5000/user/${id}`);
+      const res = await getPhotoId.json();
+      console.log(res);
+
+      if (typeof res.profilePhoto === "number") {
+        await fetcher({
+          url: `/photo/${res.profilePhoto}`,
+          method: "PATCH",
+          body: {
+            profilePhoto: previewUrl,
+          },
+        });
+      } else {
+        const postProfilePhoto = await fetch(`http://localhost:5000/photo/`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            src: previewUrl,
+          }),
+        });
+        const response = await postProfilePhoto.json();
+
+        await fetch(`http://localhost:5000/user/${id}`, {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ profilePhoto: response.id }),
+        });
       }
-    );
+    } catch (error) {
+      console.log("error : ", error);
+    } finally {
+      editMyProfile("profilePhoto", previewUrl);
+      editorHandler(false);
+      closeModal();
+    }
   };
 
   return (

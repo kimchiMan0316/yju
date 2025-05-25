@@ -15,7 +15,7 @@ export const GoodThing = () => {
       </AnimatedContainer>
 
       <AnimatedContainer>
-        <div class="grid grid-rows-4 md:grid-cols-2 gap-4">
+        <div className="grid grid-rows-4 md:grid-cols-2 gap-4">
           <Card title="현지학기제">
             일본 도시로 6주가 현지교육을 진행합니다.
           </Card>
@@ -43,7 +43,7 @@ export const GoodThing = () => {
 
 const Card = ({ children, title }) => {
   return (
-    <div class="bg-brand-point p-4 rounded-xl shadow-lg dark:bg-card-dark ">
+    <div className="bg-brand-point p-4 rounded-xl shadow-lg dark:bg-card-dark ">
       <p className="font-bold text-xl dark:text-brand-dark text-brand mb-2">
         {title}
       </p>

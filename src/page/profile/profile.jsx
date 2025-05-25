@@ -5,16 +5,18 @@ import { ProfileArea } from "./components/profileArea";
 import { ArticleArea } from "./components/articleArea";
 
 export const Profile = () => {
-  const { username, message, id, me } = useLoaderData();
-
-  console.log(username, message, id, me);
+  const { username, message, id, me, profilePhoto } = useLoaderData();
 
   return (
     <Container>
       {me ? (
         <MyProfileArea />
       ) : (
-        <ProfileArea username={username} message={message} />
+        <ProfileArea
+          username={username}
+          message={message}
+          profilePhoto={profilePhoto}
+        />
       )}
       <ArticleArea id={id} />
     </Container>

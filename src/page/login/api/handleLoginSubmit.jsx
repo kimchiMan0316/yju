@@ -1,5 +1,6 @@
 import { saveSession } from "../../../auth/auth";
 import { useMyProfile } from "../../../store/myprofile";
+import getPhoto from "../../../util/getPhoto";
 
 export const handleLoginSubmit = async (e, inputValue, callback) => {
   e.preventDefault();
@@ -20,6 +21,8 @@ export const handleLoginSubmit = async (e, inputValue, callback) => {
       response[0].userId === inputValue.userId &&
       response[0].password === inputValue.password
     ) {
+      const photo = await getPhoto(response[0].profilePhoto);
+
       const getSession = await saveSession({
         sessionId: Date.now(),
         uid: response[0].id,
@@ -29,7 +32,7 @@ export const handleLoginSubmit = async (e, inputValue, callback) => {
           id: response[0].id,
           username: response[0].username,
           state: response[0].state,
-          profilePhoto: response[0].profilePhoto,
+          profilePhoto: photo,
           message: response[0].message,
         });
         callback();
