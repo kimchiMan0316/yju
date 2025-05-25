@@ -9,6 +9,7 @@ module.exports = {
           DEFAULT: "#191f28",
           sub: "#6b7684",
           dark: "#e6edf3",
+          brand: "#38b4ff",
         },
       },
       backgroundColor: {
@@ -34,5 +35,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("@tailwindcss/line-clamp")],
+  plugins: [],
 };

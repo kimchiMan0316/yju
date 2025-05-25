@@ -4,7 +4,7 @@ import useChange from "../../hooks/useChange";
 import logo from "../../assets/untityLogo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import { redirectHome } from "./api/redirectHome";
+import { checkSessionValid } from "./api/checkSessionValid";
 import { handleLoginSubmit } from "./api/handleLoginSubmit";
 
 const Login = () => {
@@ -18,7 +18,7 @@ const Login = () => {
   useEffect(() => {
     const checkSession = async () => {
       const sessionId = sessionStorage.getItem("sessionId");
-      const session = await redirectHome(sessionId);
+      const session = await checkSessionValid(sessionId);
 
       if (session) {
         navigate("/");
@@ -30,7 +30,7 @@ const Login = () => {
 
   return (
     <div className="flex flex-col justify-center items-center w-screen h-screen ">
-      <div className="flex flex-col justify-start items-center border border-[#dcdcdc] dark:border-none md:dark:border-[#161b22] p-8 rounded-2xl">
+      <div className="hidden md:flex flex-col justify-start items-center border border-[#dcdcdc] dark:border-none md:dark:border-[#161b22] p-8 rounded-2xl">
         <div className="w-48">
           <img className="object-cover" src={logo} alt="logo" />
         </div>

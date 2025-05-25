@@ -2,12 +2,15 @@ import { useNavigate } from "react-router-dom";
 import defaultProfile from "../../assets/기본이미지.png";
 import { useMyProfile } from "../../store/myprofile";
 
-export const ProfileButton = ({ ...props }) => {
+export const ProfileButton = ({ callback, ...props }) => {
   const navigate = useNavigate();
   const { id, profilePhoto } = useMyProfile((state) => state.myProfile);
 
   const onClick = () => {
     navigate(`/profile/${id}`);
+    if (typeof callback === "function") {
+      callback();
+    }
   };
 
   return (
