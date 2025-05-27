@@ -80,20 +80,20 @@ export const ImageCropper = ({ closeModal, id, editorHandler }) => {
 
   const editProfilePhoto = async () => {
     try {
-      const getPhotoId = await fetch(`http://localhost:5000/user/${id}`);
+      const getPhotoId = await fetch(`/user/${id}`);
       const res = await getPhotoId.json();
       console.log(res);
 
-      if (typeof res.profilePhoto === "number") {
+      if (typeof res.photoId === "number") {
         await fetcher({
-          url: `/photo/${res.profilePhoto}`,
+          url: `/photo/${res.photoId}`,
           method: "PATCH",
           body: {
-            profilePhoto: previewUrl,
+            src: previewUrl,
           },
         });
       } else {
-        const postProfilePhoto = await fetch(`http://localhost:5000/photo/`, {
+        const postProfilePhoto = await fetch(`/photo`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -102,10 +102,10 @@ export const ImageCropper = ({ closeModal, id, editorHandler }) => {
         });
         const response = await postProfilePhoto.json();
 
-        await fetch(`http://localhost:5000/user/${id}`, {
+        await fetch(`/user/${id}`, {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ profilePhoto: response.id }),
+          body: JSON.stringify({ photoId: response.id }),
         });
       }
     } catch (error) {
