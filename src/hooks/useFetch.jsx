@@ -17,7 +17,7 @@ export const useFetch = () => {
         return;
       }
 
-      const request = await fetch(`http://localhost:5000${url}`, {
+      const request = await fetch(`${url}`, {
         method: method,
         headers:
           method !== "GET" && method !== "DELETE"

@@ -16,7 +16,7 @@ export const profileLoader = async ({ params }) => {
     const reqProfile = await fetch(`http://localhost:5000/user?id=${id}`);
     const resProfile = await reqProfile.json();
 
-    const profilePhoto = await getPhoto(resProfile[0].profilePhoto);
+    const profilePhoto = await getPhoto(resProfile[0].photoId);
 
     return {
       id: resProfile[0].id,

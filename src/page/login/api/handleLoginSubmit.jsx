@@ -11,9 +11,7 @@ export const handleLoginSubmit = async (e, inputValue, callback) => {
   }
 
   try {
-    const request = await fetch(
-      `http://localhost:5000/user?userId=${inputValue.userId}`
-    );
+    const request = await fetch(`/user?userId=${inputValue.userId}`);
     const response = await request.json();
 
     if (
@@ -21,7 +19,7 @@ export const handleLoginSubmit = async (e, inputValue, callback) => {
       response[0].userId === inputValue.userId &&
       response[0].password === inputValue.password
     ) {
-      const photo = await getPhoto(response[0].profilePhoto);
+      const photo = await getPhoto(response[0].photoId);
 
       const getSession = await saveSession({
         sessionId: Date.now(),

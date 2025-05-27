@@ -6,9 +6,7 @@ export const checkSession = async () => {
   console.log("session : ", session);
 
   try {
-    const req = await fetch(
-      `http://localhost:5000/session?sessionId=${session}`
-    );
+    const req = await fetch(`/session?sessionId=${session}`);
     const res = await req.json();
 
     if (res[0].sessionId === Number(session) || res[0].uid === Number(uid)) {
@@ -28,7 +26,7 @@ export const checkAuth = async () => {
   if (!uid) return false;
 
   try {
-    const req = await fetch(`http://localhost:5000/session?uid=${uid}`);
+    const req = await fetch(`/session?uid=${uid}`);
     const res = await req.json();
 
     if (res[0].uid === Number(uid)) {
@@ -44,7 +42,7 @@ export const checkAuth = async () => {
 
 // 세션 저장 함수 (로그인 시)
 export const saveSession = async (sessionData) => {
-  const req = await fetch(`http://localhost:5000/session`, {
+  const req = await fetch(`/session`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -66,16 +64,14 @@ export const clearSession = async () => {
   const mySession = sessionStorage.getItem("sessionId");
 
   try {
-    const getSessionIndex = await fetch(
-      `http://localhost:5000/session?sessionId=${mySession}`
-    );
+    const getSessionIndex = await fetch(`/session?sessionId=${mySession}`);
     const response = await getSessionIndex.json();
 
     console.log(response);
 
     const sessionIndex = response[0].id;
 
-    const req = await fetch(`http://localhost:5000/session/${sessionIndex}`, {
+    const req = await fetch(`/session/${sessionIndex}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
