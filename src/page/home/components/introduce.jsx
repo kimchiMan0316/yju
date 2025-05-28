@@ -29,7 +29,7 @@ export const Introduce = () => {
 
       {/* layer1 */}
 
-      <div className="flex w-full justify-center h-screen items-center ">
+      <div className="flex w-full justify-center h-screen items-center px-2">
         <div className="h-screen flex flex-col items-start mt-48 mr-28">
           <AnimatedContainer>
             <p className="my-10 text-[#38b4ff] font-bold text-2xl">일본어</p>
@@ -59,7 +59,7 @@ export const Introduce = () => {
       </div>
 
       {/* layer2 */}
-      <div className="flex w-full justify-center h-screen items-center bg-brand-point dark:bg-card-dark">
+      <div className="flex px-2 w-full justify-center h-screen items-center bg-brand-point dark:bg-card-dark">
         <div className="flex w-[700px] h-screen  items-end mb-48">
           <AnimatedContainer delay={0.4}>
             <div className="rounded-lg overflow-hidden shadow-3xl dark:shadow-dark">
@@ -96,7 +96,7 @@ export const Introduce = () => {
       </div>
 
       {/* layer3 */}
-      <div className="flex w-full justify-center h-screen items-center ">
+      <div className="flex px-2 w-full justify-center h-screen items-center ">
         <div className="h-screen flex flex-col items-start mt-48 mr-28">
           <AnimatedContainer>
             <p className="my-10 text-[#38b4ff] font-bold text-2xl">프로젝트</p>
@@ -127,7 +127,7 @@ export const Introduce = () => {
       </div>
 
       {/* layer4 */}
-      <div className="flex w-full justify-center h-screen items-center bg-brand-point dark:bg-card-dark">
+      <div className="flex px-2 w-full justify-center h-screen items-center bg-brand-point dark:bg-card-dark">
         <div className="flex w-[700px] h-screen  items-end mb-48">
           <AnimatedContainer delay={0.4}>
             <div className="rounded-lg overflow-hidden shadow-3xl dark:shadow-dark">

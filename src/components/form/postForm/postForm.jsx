@@ -1,0 +1,141 @@
+// MyEditor.tsx
+import { useEditor, EditorContent } from "@tiptap/react";
+import StarterKit from "@tiptap/starter-kit";
+import TextAlign from "@tiptap/extension-text-align";
+import { Container } from "../../container/container";
+import Placeholder from "@tiptap/extension-placeholder";
+import { MenuBar } from "./components/menuBar";
+import { CustomImage } from "./components/customImageExtansion";
+import { Button } from "../../button/button";
+import FontSize from "./components/customFontSize";
+import Underline from "@tiptap/extension-underline";
+import { useRef } from "react";
+import { checkAuth } from "../../../auth/auth";
+import { useNavigate } from "react-router-dom";
+import { createAt } from "../../../util/createAt";
+import { useMyProfile } from "../../../store/myprofile";
+
+const MyEditor = ({ url, exitPath, closeModal, callback, className }) => {
+  const title = useRef("");
+  const nav = useNavigate();
+  const { id, username } = useMyProfile((state) => state.myProfile);
+  const editor = useEditor({
+    extensions: [
+      StarterKit,
+      FontSize,
+      Placeholder.configure({
+        placeholder: "글 작성...",
+      }),
+      TextAlign.configure({
+        types: ["heading", "paragraph"],
+      }),
+      // Image.configure({ inline: false }),
+      CustomImage,
+      Underline,
+    ],
+    content: "",
+  });
+
+  const createPosting = async () => {
+    if (!editor) return;
+    const session = await checkAuth();
+    if (!session) {
+      alert("인증 오류입니다.");
+      nav("/login", { replace: true });
+      return;
+    }
+
+    // 이미지 찾기 (첫 번째 이미지)
+    const findFirstImageNode = (node) => {
+      if (!node) return null;
+      if (node.type === "image") return node;
+
+      if (node.content && Array.isArray(node.content)) {
+        for (const child of node.content) {
+          const found = findFirstImageNode(child);
+          if (found) return found;
+        }
+      }
+
+      return null;
+    };
+
+    try {
+      const firstPhoto = findFirstImageNode(editor.getJSON());
+
+      let photoId = "";
+      if (firstPhoto) {
+        const req = await fetch(`/photo`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ src: firstPhoto.attrs.src }),
+        });
+        const res = await req.json();
+        photoId = res.id;
+      }
+
+      const titleValue = title.current.value;
+      const article = editor.getText().split()[0];
+      const src = editor.getJSON();
+
+      if ([titleValue, article, src].some((val) => !val)) {
+        alert("작성을 완료해주세요");
+        return;
+      }
+
+      const body = {
+        title: titleValue,
+        article: article,
+        createAt: createAt(),
+        userId: id,
+        src: src,
+        photoId: photoId || "",
+        username: username,
+      };
+
+      const req = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+      const res = await req.json();
+      if (res) {
+        if (typeof callback === "function") return callback();
+
+        nav(exitPath);
+      }
+    } catch (error) {
+      console.error("오류:", error);
+
+      alert("오류발생");
+    }
+  };
+
+  return (
+    <Container className={className}>
+      <div className="p-4">
+        <input
+          ref={title}
+          className="w-full py-4 focus:outline-none dark:bg-brand-dark font-semibold text-3xl text-brand dark:text-brand-dark"
+          placeholder="제목을 입력하세요"
+        />
+        <MenuBar editor={editor} />
+        <EditorContent editor={editor} />
+      </div>
+
+      <div className="flex gap-2 justify-end border-t-2 pt-4 border-t-[#ededed] dark:border-t-[#161b22]">
+        <Button
+          className="w-32 bg-button-point hover:bg-button-pointHover"
+          onClick={closeModal ? closeModal : () => nav(exitPath)}
+        >
+          나가기
+        </Button>
+        <Button className="w-32" onClick={createPosting}>
+          발행하기
+        </Button>
+      </div>
+    </Container>
+  );
+};
+
+export default MyEditor;

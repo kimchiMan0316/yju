@@ -1,9 +1,9 @@
 export const getPostingList = async (id) => {
   try {
-    const req = await fetch(`http://localhost:5000/post?userId=${id}`);
+    const req = await fetch(`/post?userId=${id}`);
     const res = await req.json();
-
-    return res;
+    const response = res?.reverse();
+    return response;
   } catch (error) {
     console.log(error);
   }
