@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { checkSession } from "../auth/auth";
 import { Navigate } from "react-router-dom";
 
-export const useGet = ({ url }) => {
+export const useGet = (url) => {
   const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState();
 

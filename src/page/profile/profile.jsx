@@ -18,7 +18,7 @@ export const Profile = () => {
           profilePhoto={profilePhoto}
         />
       )}
-      <ArticleArea id={id} />
+      <ArticleArea id={id} me={me} />
     </Container>
   );
 };

@@ -45,6 +45,7 @@ export const router = createBrowserRouter([
       {
         path: "/account/:id",
         element: <Account />,
+        loader: "",
       },
     ],
   },

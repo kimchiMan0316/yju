@@ -23,7 +23,8 @@ export const checkSession = async () => {
 // crud 시 인증하기
 export const checkAuth = async () => {
   const uid = sessionStorage.getItem("uid");
-  if (!uid) return false;
+  const sessionId = sessionStorage.getItem("sessionId");
+  if (!uid || !sessionId) return false;
 
   try {
     const req = await fetch(`/session?uid=${uid}`);
@@ -78,8 +79,6 @@ export const clearSession = async () => {
       },
     });
     const res = await req.json();
-
-    console.log(res);
   } catch (error) {
     console.error("로그아웃 오류 : ", error);
   } finally {

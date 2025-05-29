@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { PostingBox } from "./box/postingBox";
 import { getPostingList } from "../api/getPostingList";
 
-export const ArticleArea = ({ id }) => {
+export const ArticleArea = ({ id, me }) => {
   const [postList, setPostList] = useState([]);
 
   useEffect(() => {
@@ -17,6 +17,11 @@ export const ArticleArea = ({ id }) => {
     };
     fetchPost();
   }, [id]);
+
+  const deletePosting = (id) => {
+    const newPostList = postList.filter((v) => v.id !== id);
+    setPostList(newPostList);
+  };
 
   const hasPosts = postList.length > 0;
 
@@ -33,7 +38,14 @@ export const ArticleArea = ({ id }) => {
         }
       >
         {hasPosts ? (
-          postList.map((item) => <PostingBox key={item.id} item={item} />)
+          postList.map((item) => (
+            <PostingBox
+              key={item.id}
+              item={item}
+              me={me}
+              deletePosting={deletePosting}
+            />
+          ))
         ) : (
           <p className="font-bold ">게시글 없음</p>
         )}

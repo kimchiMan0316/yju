@@ -13,8 +13,8 @@ export const profileLoader = async ({ params }) => {
       me: true,
     };
   } else if (id !== MYUID) {
-    const reqProfile = await fetch(`http://localhost:5000/user?id=${id}`);
-    const resProfile = await reqProfile.json();
+    const reqProfile = await fetch(`/user?id=${id}`);
+    const resProfile = (await reqProfile.json()) || "";
 
     const profilePhoto = await getPhoto(resProfile[0].photoId);
 

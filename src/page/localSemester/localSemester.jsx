@@ -1,10 +1,23 @@
-import { ProfilePhotoContainer } from "../../components/container/profilePhotoContainer";
+import { useEffect, useState } from "react";
+import { PostViewer } from "../../components/form/postForm/postViewer";
+import { Container } from "../../components/container/container";
 
 export const LocalSemester = () => {
+  const [response, setResponse] = useState();
+
+  useEffect(() => {
+    fetch("/post/9")
+      .then((res) => res.json())
+      .then((res) => {
+        setResponse(res);
+      });
+  }, []);
+
   return (
-    <div>
-      현지학기 소개제
-      <ProfilePhotoContainer id={1} width={20} src={null} alt="maruta" />
-    </div>
+    <>
+      <Container className="p-4">
+        {response && <PostViewer item={response} />}
+      </Container>
+    </>
   );
 };

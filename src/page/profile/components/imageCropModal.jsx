@@ -5,6 +5,7 @@ import "./mycrop.css";
 import { useMyProfile } from "../../../store/myprofile";
 import { SelectPhotoArea } from "./selectPhotoArea";
 import { useFetch } from "../../../hooks/useFetch";
+import { checkAuth } from "../../../auth/auth";
 
 export const ImageCropper = ({ closeModal, id, editorHandler }) => {
   const [imgSrc, setImgSrc] = useState("");
@@ -79,10 +80,16 @@ export const ImageCropper = ({ closeModal, id, editorHandler }) => {
   };
 
   const editProfilePhoto = async () => {
+    const session = await checkAuth();
+
+    if (!session) {
+      alert("본인 인증에 실패했습니다.");
+      return;
+    }
+
     try {
       const getPhotoId = await fetch(`/user/${id}`);
       const res = await getPhotoId.json();
-      console.log(res);
 
       if (typeof res.photoId === "number") {
         await fetcher({
