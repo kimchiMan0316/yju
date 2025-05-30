@@ -22,7 +22,7 @@ export const Input = ({
       </label>
       <input
         htmlFor={id}
-        className={`border rounded-lg px-2 py-2 w-full focus: outline-none dark:bg-[#c8cbd0] dark:border-none dark:text-brand ${className}`}
+        className={`border rounded-lg px-2 py-2 w-full focus: outline-none dark:bg-card-hover dark:border-none dark:text-brand-sub ${className}`}
         placeholder={placeholder}
         value={value ?? ""}
         type={type}

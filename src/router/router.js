@@ -12,6 +12,7 @@ import { ErrorPage } from "../page/error/error";
 import { profileLoader } from "./api/profileLoader";
 import { Account } from "../page/account/account";
 import { UpdatePost } from "../page/post/updatePost";
+import { editAccountLoader } from "./api/editAccount";
 
 export const router = createBrowserRouter([
   {
@@ -50,7 +51,7 @@ export const router = createBrowserRouter([
       {
         path: "/account/:id",
         element: <Account />,
-        loader: "",
+        loader: editAccountLoader,
       },
     ],
   },
