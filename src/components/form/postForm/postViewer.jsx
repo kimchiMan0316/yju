@@ -11,10 +11,12 @@ import { useModal } from "../../../hooks/useModal";
 import { OptionModal } from "../../modal/optionModal";
 import { useFetch } from "../../../hooks/useFetch";
 import { Modal } from "../../modal/modal";
+import { useNavigate } from "react-router-dom";
 
 export const PostViewer = ({ item, me, url, deletePosting }) => {
   const { isModal, openModal, closeModal } = useModal();
   const { response, fetcher } = useFetch();
+  const navigate = useNavigate();
 
   const editor = useEditor({
     extensions: [
@@ -47,7 +49,9 @@ export const PostViewer = ({ item, me, url, deletePosting }) => {
     },
     {
       name: "수정하기",
-      action: () => {},
+      action: () => {
+        navigate(`/postEdit/${item.id}`);
+      },
     },
   ];
 
@@ -62,13 +66,13 @@ export const PostViewer = ({ item, me, url, deletePosting }) => {
   return (
     <>
       {isModal && (
-        <Modal>
+        <Modal closeModal={closeModal}>
           <OptionModal list={list} closeModal={closeModal}>
             게시글 수정하기
           </OptionModal>
         </Modal>
       )}
-      <div className="min-w-[500px] h-full overflow-scroll ">
+      <div className="min-w-[500px] h-full overflow-scroll relative">
         <div className="w-full">
           <div className="flex justify-between border-b border-[#ededed] pb-4 mb-4  dark:border-brand-sub">
             <div className="flex gap-4 items-center justify-start ">

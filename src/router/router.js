@@ -11,6 +11,7 @@ import { LocalSemester } from "../page/localSemester/localSemester";
 import { ErrorPage } from "../page/error/error";
 import { profileLoader } from "./api/profileLoader";
 import { Account } from "../page/account/account";
+import { UpdatePost } from "../page/post/updatePost";
 
 export const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ export const router = createBrowserRouter([
       {
         path: "/post/:id",
         element: <Post />,
+      },
+      {
+        path: "/postEdit/:id",
+        element: <UpdatePost />,
       },
       {
         path: "/member",

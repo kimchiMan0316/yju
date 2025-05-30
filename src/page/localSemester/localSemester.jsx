@@ -6,7 +6,7 @@ export const LocalSemester = () => {
   const [response, setResponse] = useState();
 
   useEffect(() => {
-    fetch("/post/9")
+    fetch("/post/2")
       .then((res) => res.json())
       .then((res) => {
         setResponse(res);
