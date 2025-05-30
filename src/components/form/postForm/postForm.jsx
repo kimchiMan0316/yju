@@ -9,16 +9,28 @@ import { CustomImage } from "./components/customImageExtansion";
 import { Button } from "../../button/button";
 import FontSize from "./components/customFontSize";
 import Underline from "@tiptap/extension-underline";
-import { useRef } from "react";
+import { useEffect, useState } from "react";
 import { checkAuth } from "../../../auth/auth";
 import { useNavigate } from "react-router-dom";
 import { createAt } from "../../../util/createAt";
 import { useMyProfile } from "../../../store/myprofile";
 
-const MyEditor = ({ url, exitPath, closeModal, callback, className }) => {
-  const title = useRef("");
+const MyEditor = ({
+  url,
+  exitPath,
+  closeModal,
+  callback,
+  className,
+  init,
+  post,
+}) => {
+  const [title, setTitle] = useState(init?.title || "");
   const nav = useNavigate();
   const { id, username } = useMyProfile((state) => state.myProfile);
+
+  const method = post ? "POST" : "PATCH";
+  const path = post ? `${url}` : `${url}/${init?.id}`;
+
   const editor = useEditor({
     extensions: [
       StarterKit,
@@ -29,12 +41,17 @@ const MyEditor = ({ url, exitPath, closeModal, callback, className }) => {
       TextAlign.configure({
         types: ["heading", "paragraph"],
       }),
-      // Image.configure({ inline: false }),
       CustomImage,
       Underline,
     ],
-    content: "",
+    content: init?.src || "",
   });
+
+  useEffect(() => {
+    return () => {
+      editor?.destroy();
+    };
+  }, [editor]);
 
   const createPosting = async () => {
     if (!editor) return;
@@ -61,30 +78,39 @@ const MyEditor = ({ url, exitPath, closeModal, callback, className }) => {
     };
 
     try {
-      const firstPhoto = findFirstImageNode(editor.getJSON());
+      const firstPhoto = await findFirstImageNode(editor.getJSON());
 
-      let photoId = "";
+      let photoId = init?.photoId || "";
+
+      console.log(photoId);
       if (firstPhoto) {
-        const req = await fetch(`/photo`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ src: firstPhoto.attrs.src }),
-        });
+        const req = await fetch(
+          `/photo/` + (method === "PATCH" ? init.photoId : ""),
+          {
+            method: method,
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ src: firstPhoto.attrs.src }),
+          }
+        );
         const res = await req.json();
         photoId = res.id;
       }
 
-      const titleValue = title.current.value;
       const article = editor.getText().split()[0];
       const src = editor.getJSON();
 
-      if ([titleValue, article, src].some((val) => !val)) {
+      if (
+        !title.trim() ||
+        !article.trim() ||
+        !src.content ||
+        src.content.length === 0
+      ) {
         alert("작성을 완료해주세요");
         return;
       }
 
       const body = {
-        title: titleValue,
+        title: title,
         article: article,
         createAt: createAt(),
         userId: id,
@@ -93,8 +119,8 @@ const MyEditor = ({ url, exitPath, closeModal, callback, className }) => {
         username: username,
       };
 
-      const req = await fetch(url, {
-        method: "POST",
+      const req = await fetch(path, {
+        method: method,
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
       });
@@ -115,7 +141,8 @@ const MyEditor = ({ url, exitPath, closeModal, callback, className }) => {
     <Container className={className}>
       <div className="p-4">
         <input
-          ref={title}
+          onChange={(e) => setTitle(e.target.value)}
+          value={title}
           className="w-full py-4 focus:outline-none dark:bg-brand-dark font-semibold text-3xl text-brand dark:text-brand-dark"
           placeholder="제목을 입력하세요"
         />
@@ -123,7 +150,7 @@ const MyEditor = ({ url, exitPath, closeModal, callback, className }) => {
         <EditorContent editor={editor} />
       </div>
 
-      <div className="flex gap-2 justify-end border-t-2 pt-4 border-t-[#ededed] dark:border-t-[#161b22]">
+      <div className="flex gap-2 justify-between border-t-2 pt-4 border-t-[#ededed] dark:border-t-[#161b22]">
         <Button
           className="w-32 bg-button-point hover:bg-button-pointHover"
           onClick={closeModal ? closeModal : () => nav(exitPath)}
