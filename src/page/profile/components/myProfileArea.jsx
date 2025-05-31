@@ -64,7 +64,7 @@ export const MyProfileArea = () => {
             </div>
             <div className="text-center mt-14">
               <p className="text-3xl font-bold ">{username}</p>
-              <p className="my-2 text-brand-sub">
+              <p className="my-4 text-brand-sub">
                 {message ? message : `${username}의 프로필`}
               </p>
             </div>

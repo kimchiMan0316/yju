@@ -97,7 +97,12 @@ export const PostViewer = ({ item, me, url, deletePosting }) => {
             </div>
           </div>
         </div>
-        <h1 className="text-3xl font-bold pb-4">{item.title}</h1>
+        <h1 className="text-3xl font-bold text-center pt-4 pb-8">
+          {item.title}
+        </h1>
+        <p className="text-right text-xs text-brand-sub  pb-10">
+          작성일 : {item.createAt}
+        </p>
         <EditorContent editor={editor} />
       </div>
     </>

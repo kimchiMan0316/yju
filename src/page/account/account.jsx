@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Container } from "../../components/container/container";
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
-
+import defaultImg from "../../assets/기본이미지.png";
 import { Button } from "../../components/button/button";
 import { useModal } from "../../hooks/useModal";
 import { Modal } from "../../components/modal/modal";
@@ -48,9 +48,6 @@ export const Account = () => {
     }
   }, [navigate, loader]);
 
-  console.log(loader);
-  console.log(inputValue);
-
   return (
     <Container>
       {isModal && (
@@ -66,7 +63,7 @@ export const Account = () => {
         <p className="ml-1 text-brand-sub text-base font-bold mb-1">회원정보</p>
         <div className="flex items-center mb-6 w-full px-3 py-2 text-sm rounded-lg text-brand-sub bg-brand-point dark:bg-card-dark">
           <img
-            src={myProfile.profilePhoto}
+            src={myProfile.profilePhoto || defaultImg}
             alt="Profile"
             className="w-12 h-12 rounded-full object-cover mr-4"
           />

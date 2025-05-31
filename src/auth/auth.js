@@ -26,10 +26,10 @@ export const checkAuth = async () => {
   if (!uid || !sessionId) return false;
 
   try {
-    const req = await fetch(`/session?uid=${uid}`);
+    const req = await fetch(`/session?uid=${uid}&sessionId=${sessionId}`);
     const res = await req.json();
 
-    if (res[0].uid === Number(uid)) {
+    if (res[0].uid === Number(uid) && res[0].sessionId === Number(sessionId)) {
       return true;
     }
 

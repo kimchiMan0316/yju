@@ -5,8 +5,8 @@ export default async function getPhoto(id) {
     const getPhoto = await fetch(`/photo?id=${id}`);
     const response = await getPhoto.json();
 
-    if (response[0].src) {
-      return response[0].src;
+    if (response[0]?.src) {
+      return response[0]?.src;
     }
 
     return "";
