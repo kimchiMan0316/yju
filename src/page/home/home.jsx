@@ -10,7 +10,7 @@ export const Home = () => {
   return (
     <>
       <PageContainer>
-        <Container page={true} className="bg-brand">
+        <Container className="bg-brand">
           <VideoLayerComponent />
           <div className="md:grid md:grid-cols-2 flex gap-2 mt-2">
             <LongBox

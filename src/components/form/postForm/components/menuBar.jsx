@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import {
   BoldIcon,
   CenterIcon,
@@ -85,9 +86,8 @@ export const MenuBar = ({ editor }) => {
   return (
     <div className="flex w-full my-4 gap-2">
       {editorButtons.map(({ label, action }, index) => (
-        <>
+        <Fragment key={index}>
           <button
-            key={index}
             onClick={action}
             className="font-bold border w-10 h-10 flex justify-center dark:border-none items-center dark:bg-card-dark rounded opacity-60 hover:opacity-100"
           >
@@ -96,7 +96,7 @@ export const MenuBar = ({ editor }) => {
           {(index + 1) % 3 === 0 ? (
             <div className="mx-1 h-8 self-center w-[1px] bg-[#ededed]"></div>
           ) : null}
-        </>
+        </Fragment>
       ))}
       <label
         className="flex items-center w-10 h-10 justify-center border rounded cursor-pointer dark:border-none dark:bg-card-dark opacity-60 hover:opacity-100"

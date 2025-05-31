@@ -55,7 +55,7 @@ export const VideoLayerComponent = () => {
             <h1 className="text-lg font-bold text-brand dark:text-brand-dark">
               일본IT과
             </h1>
-            <p className="text-brand-sub text-sm my-2 font-normal">
+            <p className="text-brand-sub text-xs my-2 font-normal">
               일본IT과에 대해서 알아보세요!
             </p>
           </a>
@@ -77,8 +77,8 @@ export const VideoLayerComponent = () => {
                 alt="망원경 이미지"
               />
             </div>
-            <p className="text-brand-sub font-medium">프로젝트에 참가했던</p>
-            <p className="text-brand-sub font-medium">동료들을 소개합니다!</p>
+            <p className="text-brand-sub font-sm">프로젝트에 참가했던</p>
+            <p className="text-brand-sub font-sm">동료들을 소개합니다!</p>
           </div>
         </div>
       </div>

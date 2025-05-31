@@ -77,9 +77,13 @@ export const ChangeLoginInfModal = ({ id, changeId }) => {
 
   useEffect(() => {
     setError(false);
+
+    const controller = new AbortController();
+    const signal = controller.signal;
+
     const checkId = async () => {
       try {
-        const req = await fetch(`/user?userId=${inputValue.value}`);
+        const req = await fetch(`/user?userId=${inputValue.value}`, { signal });
         const res = await req.json();
         if (res.length === 1) {
           setError(true);
@@ -89,6 +93,8 @@ export const ChangeLoginInfModal = ({ id, changeId }) => {
       }
     };
     checkId();
+
+    return () => controller.abort();
   }, [inputValue.value]);
 
   return (

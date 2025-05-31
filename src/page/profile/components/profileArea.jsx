@@ -18,7 +18,7 @@ export const ProfileArea = ({ username, message, profilePhoto }) => {
           <div className="absolute bottom-0 z-[1] h-56 w-96 rounded-xl bg-brand-point dark:bg-card-dark flex flex-col justify-start ">
             <div className="text-center mt-[6.5rem]">
               <p className="text-3xl font-bold">{username}</p>
-              <p className="my-2 text-brand-sub">{profileMessage}</p>
+              <p className="my-4 text-brand-sub">{profileMessage}</p>
             </div>
           </div>
         </div>

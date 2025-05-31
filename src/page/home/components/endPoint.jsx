@@ -14,9 +14,12 @@ export const EndPoint = () => {
   const width = useTransform(scrollYProgress, [0.1, 0.4], ["80vw", "100vw"]);
 
   return (
-    <div ref={target} className="flex w-screen  justify-center items-start">
+    <div
+      ref={target}
+      className="flex w-screen  justify-center items-start relative"
+    >
       <motion.div
-        className="flex justify-center items-start overflow-hidden relative"
+        className="flex justify-center items-start overflow-hidden"
         style={{ width }}
       >
         <img

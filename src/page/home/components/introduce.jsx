@@ -15,12 +15,10 @@ export const Introduce = () => {
             우리는 이런걸 해요.
           </p>
         </AnimatedContainer>
-        <AnimatedContainer delay={0.5}>
-          <div className="flex flex-col justify-center items-center mb-20">
-            <p className="font-medium text-2xl text-brand-sub">
-              일본 IT반은 일본 취업을 위해 공부합니다.
-            </p>
-            <p className="font-medium text-2xl text-brand-sub">
+        <AnimatedContainer>
+          <div className="flex flex-col justify-center items-center mb-20 font-medium text-brand-sub text-lg md:text-2xl">
+            <p className="">일본 IT반은 일본 취업을 위해 공부합니다.</p>
+            <p className="">
               시작한 이유는 모두 다르지만 같은 목표를 위해 서로 돕고 성장해요.
             </p>
           </div>
@@ -30,17 +28,17 @@ export const Introduce = () => {
       {/* layer1 */}
 
       <div className="flex w-full justify-center h-screen items-center px-2">
-        <div className="h-screen flex flex-col items-start mt-48 mr-28">
+        <div className="h-screen flex flex-col items-start mt-48 mr-4 md:mr-28">
           <AnimatedContainer>
             <p className="my-10 text-[#38b4ff] font-bold text-2xl">일본어</p>
           </AnimatedContainer>
 
           <AnimatedContainer delay={0.2}>
-            <div className="text-brand-sub text-xl font-medium">
-              <p className="text-3xl font-bold mb-4 text-brand dark:text-brand-dark">
+            <div className="text-brand-sub font-medium text-lg md:text-3xl">
+              <p className=" font-bold mb-4   text-brand dark:text-brand-dark">
                 일본어 특강 운영
               </p>
-              <p>
+              <p className="md:text-xl">
                 일본회사에 취업하기 위해서 일본어학습은 필수입니다.
                 <br />
                 일본어 특별강의를 운영해 매일매일 일본어를 학습합니다.
@@ -71,19 +69,19 @@ export const Introduce = () => {
             </div>
           </AnimatedContainer>
         </div>
-        <div className="h-screen flex flex-col items-start mt-56 ml-28">
+        <div className="h-screen flex flex-col items-start mt-56 ml-4 md:ml-28">
           <AnimatedContainer>
-            <p className="my-10 text-[#38b4ff] font-bold text-2xl">
+            <p className="my-10 text-[#38b4ff] font-bold text-xl md:text-2xl ">
               프로그래밍 · 네트워크
             </p>
           </AnimatedContainer>
 
           <AnimatedContainer delay={0.2}>
             <div className="text-brand-sub text-xl font-medium">
-              <p className="text-3xl font-bold mb-4 text-brand dark:text-brand-dark">
+              <p className="text-lg md:text-3xl font-bold mb-4 text-brand dark:text-brand-dark">
                 전공에 맞는 강의
               </p>
-              <p>
+              <p className="text-lg md:text-xl">
                 전공을 세분화합니다
                 <br />
                 네트워크반과 프로그래밍반을 운영합니다.
@@ -97,7 +95,7 @@ export const Introduce = () => {
 
       {/* layer3 */}
       <div className="flex px-2 w-full justify-center h-screen items-center ">
-        <div className="h-screen flex flex-col items-start mt-48 mr-28">
+        <div className="h-screen flex flex-col items-start mt-48 mr-4 md:mr-28">
           <AnimatedContainer>
             <p className="my-10 text-[#38b4ff] font-bold text-2xl">프로젝트</p>
           </AnimatedContainer>

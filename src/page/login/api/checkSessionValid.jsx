@@ -1,5 +1,4 @@
 export const checkSessionValid = async (sessionId) => {
-  console.log(sessionId);
   if (!sessionId) return false;
 
   const res = await fetch(`/session?sessionId=${sessionId}`);
