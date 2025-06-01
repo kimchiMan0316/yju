@@ -27,8 +27,8 @@ export const LocalSemester = () => {
     }
 
     const comments = [
-      { url: "/post/2", action: (e) => setPost(e) },
-      { url: `/postComment?postId=2`, action: (e) => setComments(e) },
+      { url: "/post/1", action: (e) => setPost(e) },
+      { url: `/postComment?postId=1`, action: (e) => setComments(e) },
     ];
     createComments(comments);
 
