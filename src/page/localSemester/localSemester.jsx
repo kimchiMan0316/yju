@@ -1,23 +1,53 @@
 import { useEffect, useState } from "react";
 import { PostViewer } from "../../components/form/postForm/postViewer";
 import { Container } from "../../components/container/container";
+import { CommentForm } from "../../components/form/commentForm/commentForm";
+import { CommentBox } from "../../components/box/commentBox";
 
 export const LocalSemester = () => {
-  const [response, setResponse] = useState();
+  const [post, setPost] = useState();
+  const [comments, setComments] = useState([]);
 
   useEffect(() => {
-    fetch("/post/2")
-      .then((res) => res.json())
-      .then((res) => {
-        setResponse(res);
-      });
+    const controller = new AbortController();
+    const signal = controller.signal;
+
+    async function createComments(commentList) {
+      try {
+        await Promise.all(
+          commentList.map((comment) =>
+            fetch(comment.url, { signal })
+              .then((res) => res.json())
+              .then((res) => comment.action(res))
+          )
+        );
+      } catch (error) {
+        console.error("요청 실패:", error);
+      }
+    }
+
+    const comments = [
+      { url: "/post/1", action: (e) => setPost(e) },
+      { url: `/postComment?postId=1`, action: (e) => setComments(e) },
+    ];
+    createComments(comments);
+
+    return () => controller.abort();
   }, []);
 
   return (
     <>
-      <Container className="p-4">
-        {response && <PostViewer item={response} />}
-      </Container>
+      {post && (
+        <>
+          <Container className="p-4 ">
+            <PostViewer item={post} />
+          </Container>
+          <Container className="p-4 ">
+            <CommentForm articleId={post?.id} url="/postComment" />
+            <CommentBox comment={comments} url="/postComment" />
+          </Container>
+        </>
+      )}
     </>
   );
 };

@@ -14,7 +14,7 @@ export const EditButtonIcon = ({ editorHandler, id }) => {
   };
 
   const editLoginInf = () => {
-    navigate("/account/" + id);
+    navigate(`/account/${id}`);
   };
 
   const list = [
@@ -24,7 +24,7 @@ export const EditButtonIcon = ({ editorHandler, id }) => {
     },
     {
       name: "회원정보 변경",
-      action: editLoginInf,
+      action: () => navigate(`/account/${id}`),
     },
     {
       name: "로그인 정보 변경",
