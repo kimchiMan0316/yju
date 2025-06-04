@@ -38,7 +38,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/postEdit/:id",
-        element: <UpdatePost />,
+        element: <UpdatePost url={"/post"} />,
       },
       {
         path: "/member",
@@ -47,6 +47,10 @@ export const router = createBrowserRouter([
       {
         path: "/localSemester",
         element: <LocalSemester />,
+      },
+      {
+        path: "/localSemesterEdit/:id",
+        element: <UpdatePost url={"/semester"} />,
       },
       {
         path: "/account/:id",
