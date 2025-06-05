@@ -15,6 +15,14 @@ import { useNavigate } from "react-router-dom";
 import { createAt } from "../../../util/createAt";
 import { useMyProfile } from "../../../store/myprofile";
 
+// url 데이터를 보낼 table 이름
+// exitPath 글 작성 완료나 나가기 버튼을 눌렀을 떄 갈 위치
+// closeModal 모달안에서 처리할 때 모달 닫기
+// callback 글쓰기가 완료된 뒤에 처리하고 싶은 내용 함수로 넣어주기
+// className 글쓰기 폼의 천체 사이즈 조정하고 싶을 때 사용함
+// init 게시글 한개
+// post 글 작성이면 true 글 수정이면 false
+
 const MyEditor = ({
   url,
   exitPath,

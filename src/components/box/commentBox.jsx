@@ -4,6 +4,10 @@ import { fromNow } from "../../util/fromNow";
 import { ProfilePhotoContainer } from "../container/profilePhotoContainer";
 
 // 댓글 배열만 받는 컴포넌트
+// comment = 댓글 리스트 배열
+// url = 댓글 삭제시 테이블 이름
+// callback = 삭제 후 원하는 동작
+
 export const CommentBox = ({ comment, url, callback }) => {
   const { id } = useMyProfile((state) => state.myProfile);
 
@@ -44,7 +48,7 @@ export const CommentBox = ({ comment, url, callback }) => {
             </div>
             {item.userId === id ? (
               <div
-                className="border text-brand-sub rounded-md cursor-pointer px-2"
+                className="bg-brand-point dark:bg-card-dark hover:opacity-60 text-sm text-brand-sub rounded-md cursor-pointer ml-2 px-2"
                 onClick={() => deleteButton(item.id)}
               >
                 X
