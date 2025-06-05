@@ -11,8 +11,8 @@ import { LocalSemester } from "../page/localSemester/localSemester";
 import { ErrorPage } from "../page/error/error";
 import { profileLoader } from "./api/profileLoader";
 import { Account } from "../page/account/account";
-import { UpdatePost } from "../page/post/updatePost";
 import { editAccountLoader } from "./api/editAccount";
+import { UpdatePost } from "../components/form/postForm/updatePost";
 
 export const router = createBrowserRouter([
   {
