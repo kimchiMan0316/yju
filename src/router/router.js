@@ -7,12 +7,14 @@ import { CreateAccount } from "../page/createAccount/create_Account";
 import DefaultLayout from "../components/laytout/defaultLayout";
 import { PostList } from "../page/post/postList";
 import { Member } from "../page/member/member";
-import { LocalSemester } from "../page/localSemester/localSemester";
 import { ErrorPage } from "../page/error/error";
 import { profileLoader } from "./api/profileLoader";
 import { Account } from "../page/account/account";
 import { editAccountLoader } from "./api/editAccount";
 import { UpdatePost } from "../components/form/postForm/updatePost";
+import { LocalSemesterMain } from "../page/localSemester/page/main";
+import { LocalSemesterCreatePost } from "../page/localSemester/page/createPost";
+import { LocalSemesterPost } from "../page/localSemester/page/post";
 
 export const router = createBrowserRouter([
   {
@@ -46,7 +48,16 @@ export const router = createBrowserRouter([
       },
       {
         path: "/localSemester",
-        element: <LocalSemester />,
+        element: <LocalSemesterMain />,
+      },
+      {
+        path: "/localSemesterCreate",
+        element: <LocalSemesterCreatePost />,
+        loader: "",
+      },
+      {
+        path: "LocalSemesterPost:/:id",
+        element: <LocalSemesterPost />,
       },
       {
         path: "/localSemesterEdit/:id",
