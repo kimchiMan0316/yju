@@ -48,7 +48,7 @@ export const CommentBox = ({ comment, url, callback }) => {
             </div>
             {item.userId === id ? (
               <div
-                className="border text-brand-sub rounded-md cursor-pointer px-2"
+                className="bg-brand-point dark:bg-card-dark hover:opacity-60 text-sm text-brand-sub rounded-md cursor-pointer ml-2 px-2"
                 onClick={() => deleteButton(item.id)}
               >
                 X

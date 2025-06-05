@@ -1,7 +1,8 @@
 import { useNavigate, useParams } from "react-router-dom";
-import MyEditor from "../../components/form/postForm/postForm";
+
 import { useEffect, useState } from "react";
-import { useMyProfile } from "../../store/myprofile";
+import { useMyProfile } from "../../../store/myprofile";
+import MyEditor from "./postForm";
 
 export const UpdatePost = ({ url }) => {
   const { id } = useParams();
@@ -40,7 +41,7 @@ export const UpdatePost = ({ url }) => {
       {loading ? (
         <p>loading...</p>
       ) : (
-        <MyEditor init={response} url="/post" exitPath={-1} post={false} />
+        <MyEditor init={response} url={url} exitPath={-1} post={false} />
       )}
     </div>
   );
